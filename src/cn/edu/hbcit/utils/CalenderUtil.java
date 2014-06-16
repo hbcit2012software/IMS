@@ -70,7 +70,7 @@ public class CalenderUtil {
 	 *         return year+"\t-\t"+lastYear+"学年"+"\t"+"第一学期"; }else return null;
 	 *         }
 	 */
-	public static String getSemesterschoolyear() {
+	public static String getSemesterSchoolYear() {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
 				Locale.CHINESE);
 		// 1、首先获得当前时间
@@ -101,7 +101,7 @@ public class CalenderUtil {
 	 * @return
 	 */
 	public static String getSemester() {
-		String date = getSemesterschoolyear();
+		String date = getSemesterSchoolYear();
 		String[] split = date.split("-");
 		if (split[2].equals("2"))
 			split[2] = "二";
@@ -185,7 +185,7 @@ public class CalenderUtil {
 	 */
 	public static String nextSemesters() {
 		int nextYear = 0;
-		String date = getSemesterschoolyear();
+		String date = getSemesterSchoolYear();
 		String[] split = date.split("-");
 		if (split[2].equals("2"))
 			split[2] = "一";
@@ -203,7 +203,7 @@ public class CalenderUtil {
 	 */
 	public static String lastSemesters() {
 		int nextYear = 0;
-		String date = getSemesterschoolyear();
+		String date = getSemesterSchoolYear();
 		String[] split = date.split("-");
 		if (split[2].equals("2"))
 			split[2] = "一";
