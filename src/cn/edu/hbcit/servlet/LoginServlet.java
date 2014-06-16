@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import cn.edu.hbcit.dao.RightsDao;
 import cn.edu.hbcit.utils.*;
 
 /**
@@ -88,6 +89,7 @@ public class LoginServlet extends HttpServlet {
 		
 		boolean flag = false;
 		MD5 md5 = new MD5();
+		RightsDao rd = new RightsDao();
 		
 		String chknumber = request.getParameter("vcode");
 		String username = request.getParameter("username");
@@ -97,6 +99,12 @@ public class LoginServlet extends HttpServlet {
 		if(captcha!= null && chknumber != null){
 			if(captcha.equals(chknumber)){
 				log.debug(md5.MD5Encode(password));
+				if(flag){
+					//获取权限，是否专业负责人
+					session.setAttribute("MajorsManager", rd.isMajorsManager(username));
+					//获取权限，是否系主任
+					session.setAttribute("DepartmentManager", rd.isDepartmentManager(username));
+				}
 			}
 		}
 		
