@@ -90,6 +90,7 @@ public class LoginServlet extends HttpServlet {
 		boolean flag = false;
 		MD5 md5 = new MD5();
 		RightsDao rd = new RightsDao();
+		CalenderUtil cu = new CalenderUtil();
 		
 		String chknumber = request.getParameter("vcode");
 		String username = request.getParameter("username");
@@ -102,8 +103,13 @@ public class LoginServlet extends HttpServlet {
 				if(flag){
 					//获取权限，是否专业负责人
 					session.setAttribute("MajorsManager", rd.isMajorsManager(username));
+					log.debug(rd.isMajorsManager(username));
 					//获取权限，是否系主任
 					session.setAttribute("DepartmentManager", rd.isDepartmentManager(username));
+					log.debug(rd.isDepartmentManager(username));
+					//获取学期名称
+					session.setAttribute("Semester", cu.getSemester());
+					log.debug(cu.getSemester());
 				}
 			}
 		}
