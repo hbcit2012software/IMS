@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/patchca-0.5.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jspsmartupload.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

@@ -136,7 +136,7 @@ function reloadcode()
 						<p>
 							<label class="required" for="password">验证码:</label><br/>
 							<input type="text" id="vcode" class="half" value="" name="vcode"/>
-                            <img onclick="reloadcode();" src="patchca.png" style="height:24px; width:40%; vertical-align:bottom; margin-left:4px;" id="icode"/>
+                            <img onclick="reloadcode();" src="patchca.png" style="height:24px; width:20%; vertical-align:bottom; margin-left:4px;" id="icode"/>
 						</p>
 						<p>
 							<input type="checkbox" id="remember" class="" value="1" name="remember"/>

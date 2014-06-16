@@ -15,6 +15,11 @@
     <servlet-name>VerifyCodeServlet</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.VerifyCodeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.LoginServlet</servlet-class>
+  </servlet>
+
 
 
 	<servlet-mapping>
@@ -28,6 +33,10 @@
   <servlet-mapping>
     <servlet-name>VerifyCodeServlet</servlet-name>
     <url-pattern>/patchca.png</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>
