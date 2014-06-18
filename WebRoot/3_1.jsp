@@ -42,6 +42,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
 <script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.nyroModal.pack.js"></script>
+<!--<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.nyroModal.custom.min.js">-->
 <!-- jQuery graph plugins -->
 <!--[if IE]><script type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
 <script type="text/javascript" SRC="${pageContext.request.contextPath }/js/flot/jquery.flot.min.js"></script>
@@ -56,38 +57,6 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
-<!--<script type="text/javascript">
-$(document).ready(function(){
-	
-	/* setup navigation, content boxes, etc... */
-	Administry.setup();
-	
-	/* datatable */
-	$('#example').dataTable();
-	
-	/* expandable rows */
-	Administry.expandableRows();
-});
-
-</script>-->
-<style> 
-/*遮罩层*/ 
-#tinybox_1 { 
-position:relative;
-width:700px; 
-height:130px; 
-background:#FFF;
-
-display: none; 
-z-index: 999; 
-border:5px solid #CCC; 
-display:none; 
-text-align:center; 
-padding:5px 
-} 
-
-
-</style> 
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -101,68 +70,17 @@ $(document).ready(function(){
 	Administry.expandableRows();
 });
 
-function BtHide(id){var Div = document.getElementById(id);if(Div){Div.style.display="none"}} 
-function BtShow(id){var Div = document.getElementById(id);if(Div){Div.style.display="block"}} 
-function BtPopload(showId){ 
-// 高度减去 4px，避免在页面无滚动条时显示遮罩后出现流动条 
-var h = (Math.max(document.documentElement.scrollHeight,document.documentElement.clientHeight) - 4) + 'px'; 
-var w = document.documentElement.scrollWidth + 'px'; 
-var popCss = "background:#000;opacity:0.3;filter:alpha(opacity=30);position:absolute;left:0;top:0;overflow:hidden;border:0"//遮罩背景 
-var rePosition_mask = function() { 
-pop_Box.style.height = h; 
-pop_Box.style.width = w; 
-pop_Iframe.style.height = h; 
-pop_Iframe.style.width = w; 
-if (document.documentElement.offsetWidth < 950) { 
-//防止正常宽度下点击时 在 ff 下出现页面滚动到顶部 
-document.documentElement.style.overflowX = "hidden"; 
-} 
-} 
-var exsit = document.getElementById("popBox"); 
-if (!exsit) { 
-var pop_Box = document.createElement("div"); 
-pop_Box.id = "popBox"; 
-document.getElementsByTagName("body")[0].appendChild(pop_Box); 
-pop_Box.style.cssText = popCss; 
-pop_Box.style.zIndex = "10"; 
-var pop_Iframe = document.createElement("iframe"); // 这里如果用 div 的话，在 ie6 不能把 <select> 遮住 
-pop_Iframe.id = "popIframe"; 
-document.getElementsByTagName("body")[0].appendChild(pop_Iframe); 
-pop_Iframe.style.cssText = popCss; 
-pop_Iframe.style.zIndex = "9"; 
-rePosition_mask(); 
-} 
-BtShow("popIframe"); 
-BtShow("popBox"); 
-BtShow(showId); 
-var pop_Win = document.getElementById(showId); 
-pop_Win.style.position = "absolute"; 
-pop_Win.style.zIndex = "11"; 
-var rePosition_pop = function() { 
-pop_Win.style.top = document.documentElement.scrollTop + document.body.scrollTop + document.documentElement.clientHeight/6 - pop_Win.offsetHeight/6 + 'px'; 
-pop_Win.style.left = document.documentElement.scrollLeft + document.body.scrollLeft + document.documentElement.clientWidth/5 - pop_Win.offsetWidth/5 + 'px'; 
-} 
-rePosition_pop(); 
-window.onresize = function(){ 
-w = document.documentElement.offsetWidth + 'px'; // 使用 scrollWidth 不能改变宽度
-rePosition_mask(); 
-rePosition_pop(); 
-} 
-window.onscroll = function(){ 
-rePosition_pop(); 
-} 
-} 
-function BtPopShow(Bid,Did) { 
-var UploadBtn = document.getElementById(Bid); 
-if (UploadBtn){UploadBtn.onclick = function() {BtPopload(Did);return false;}} 
-} 
-function BtPopHide(Bid,Did) { 
-var UploadBtn = document.getElementById(Bid); 
-if (UploadBtn){UploadBtn.onclick = function() {BtHide(Did);BtHide("popBox");BtHide("popIframe");return false;}} 
-} 
-
+$(function(){  
+       $.nyroModalSettings({  
+           width: 500, // width  
+           minHeight: 100 // height  
+       });  
+   }); 
 </script>
+
+
 </head>
+
 <body>
 	<!-- Header -->
 	<header id="top">
@@ -331,6 +249,7 @@ if (UploadBtn){UploadBtn.onclick = function() {BtHide(Did);BtHide("popBox");BtHi
 </fieldset>
 <div class="box">
     <!-- /* <table border='0' cellpadding='0' cellspacing='0'>*/-->
+    <form action="" method="get">
     <table>
         <tr>
           <td width='70' align='center'>专业编号：</td>
@@ -355,64 +274,17 @@ if (UploadBtn){UploadBtn.onclick = function() {BtHide(Did);BtHide("popBox");BtHi
 			</c:forEach>
         </select>
         </td>
-      <td align="right"> <input type="button" class="btn btn-green big" value="添加"></td>
+      <td align="right"> <input type="submit" class="btn btn-green big" value="添加"></td>
        </tr>
 </table>
+</form>
 </div>
 	
 				</section>
                 
                 <section class="column width8">	
-                <fieldset>
-<legend>所有专业</legend>
-</fieldset>
+                <fieldset><legend>所有专业</legend></fieldset>
 
-<!-- 弹出层 BEGIN -->
-<div id="tinybox_1"> 
- <div style="width:600px; height:130px;margin-left:40px; margin-right:auto;" >
-               <table class="no-style" width="100%" style="margin-top:10px" >
-		         <tr>
-          <td width='70' align='center'>专业代号：</td>
-          <td width='160'>
-          <input type="text" name="th" value='' style='width:150px'>        </td>
-          <td>&nbsp;</td>
-        <td width='70' align="center">专业名称：
-        </td>
-        <td width='160'>
-          	<input type='text' name='name' value='' style='width:150px' />
-        </td>
-        <tr>
-          <td width='80' align='center'>学制：</td>
-          <td width='90'>
-          <select id="productcat" class="full" name="productcat">
-											<option value="1" selected>三年制</option>
-											<option value="2">两年制</option>
-                                            <option value="2">四年制</option>
-                                            <option value="2">3+2</option>
-		</select>
-        </td>
-        <td>&nbsp;</td>
-        <td width='60' align="center">负责人：</td>
-        <td width='160'>
-        <select id="productcat" class="full" name="productcat">
-	        <c:forEach items="${requestScope.leaderList}" var="temp">   
-				<option value="${temp.PK_users }">${temp.true_name }</option>
-			</c:forEach>
-		</select>
-		</td>
-                                        </tr>
-                                        <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>&nbsp;</td ><td></td>
-      <td align="right"> <input id="close_1" type="submit"
- class="btn btn-green" value="提交">
-</td>
-       </tr>
-</table>
-     </div> 
-</div>
-<!-- 弹出层 END -->
 
 <div class="box">
 				<!-- End of Left column/section -->
@@ -434,7 +306,7 @@ if (UploadBtn){UploadBtn.onclick = function() {BtHide(Did);BtHide("popBox");BtHi
 							<td class="center">${temp.years }</td>
 							<td class="center">${temp.true_name }</td>
                             <td class="center">
-                               <a href="?${temp.PK_majors }" id="B" title="修改" style="border:0px;"> <img src="${pageContext.request.contextPath }/img/pencil.png" alt="Edit Meta" /></a>&nbsp; &nbsp; &nbsp; 
+                               <a href="${pageContext.request.contextPath }/3_1_inner.jsp?${temp.PK_majors }" class="nyroModal" id="B" title="修改"> <img src="${pageContext.request.contextPath }/img/pencil.png" alt="Edit Meta" /></a>&nbsp; &nbsp; &nbsp; 
                                <a href="?${temp.PK_majors }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="Delete" /></a> 
                             </td>
 						</tr>
@@ -488,10 +360,6 @@ if (UploadBtn){UploadBtn.onclick = function() {BtHide(Did);BtHide("popBox");BtHi
 
 <!-- User interface javascript load -->
 <script type="text/javascript" SRC="${pageContext.request.contextPath }/js/administry.js"></script>
-<script type="text/javascript"> 
-BtPopShow("B","tinybox_1"); 
-BtPopHide("close_1","tinybox_1") 
-</script> 
 
 </body>
 </html>
