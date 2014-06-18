@@ -11,6 +11,7 @@ public class Majors {
 	private String major_code;
 	private String years;
 	private String FK_users_majors;
+	private String true_name;
 	/**
 	.
 	 * @return the pK_majors
@@ -75,6 +76,18 @@ public class Majors {
 	 */
 	public void setFK_users_majors(String fK_users_majors) {
 		FK_users_majors = fK_users_majors;
+	}
+	/**
+	 * @return the true_name
+	 */
+	public String getTrue_name() {
+		return true_name;
+	}
+	/**
+	 * @param trueName the true_name to set
+	 */
+	public void setTrue_name(String trueName) {
+		true_name = trueName;
 	}
 
 }

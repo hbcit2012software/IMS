@@ -1,6 +1,7 @@
 package cn.edu.hbcit.dao;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import net.sf.json.JSONArray;
@@ -14,6 +15,7 @@ import org.apache.log4j.Logger;
 
 
 import cn.edu.hbcit.pojo.Books;
+import cn.edu.hbcit.pojo.Majors;
 import cn.edu.hbcit.pojo.Users;
 
 /**
@@ -106,6 +108,28 @@ public class RightsDao {
 		
 		return realname;
 		
+		
+	}
+	
+	/**
+	 * 查询所有教师姓名和ID
+	 * @return
+	 */
+	public ArrayList selectLeaders(){
+		ArrayList<Users> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Users users = new Users();
+			QueryRunner qr = new QueryRunner();
+			String sql = "SELECT PK_users, true_name FROM tb_users ORDER BY PK_users";
+		
+			list = (ArrayList<Users>)qr.query(conn, sql, new BeanListHandler(Users.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 		
 	}
 

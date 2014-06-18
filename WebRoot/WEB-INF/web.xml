@@ -23,6 +23,11 @@
     <servlet-name>DemoUploadServlet</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.DemoUploadServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SelectMajors</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.SelectMajors</servlet-class>
+  </servlet>
+
 
 
 
@@ -46,6 +51,10 @@
   <servlet-mapping>
     <servlet-name>DemoUploadServlet</servlet-name>
     <url-pattern>/servlet/DemoUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMajors</servlet-name>
+    <url-pattern>/servlet/SelectMajors</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>
