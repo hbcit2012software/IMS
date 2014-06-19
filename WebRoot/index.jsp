@@ -1,15 +1,16 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.util.*" errorPage="" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <title>在线教学管理系统</title>
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="img/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="img/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="img/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="${pageContext.request.contextPath }/img/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="${pageContext.request.contextPath }/img/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="${pageContext.request.contextPath }/img/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -19,24 +20,24 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="css/custom.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="js/swfobject.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="js/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="js/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="js/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.supersubs.min.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="js/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="js/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.nyroModal.pack.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -90,7 +91,7 @@ function reloadcode()
 	<header id="top">
 		<div class="wrapper-login">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="${pageContext.request.contextPath }/img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Main navigation -->
 			<nav id="menu">
 				<ul class="sf-menu">
@@ -119,10 +120,17 @@ function reloadcode()
 				<section class="full">					
 					
 					<h3>在线教学管理系统</h3>
-					
+					<c:if test="${empty requestScope.msg}">
 					<div class="box box-info">请输入用户名和密码</div>
+                    </c:if>
+                    <c:if test="${requestScope.msg == 'error'}">
+					<div class="box box-error">错误的用户名或密码</div>
+                    </c:if>
+                    <c:if test="${requestScope.msg == 'warning'}">
+					<div class="box box-warning">验证码输入错误</div>
+                    </c:if>
 
-					<form id="loginform" method="post" action="servlet/LoginServlet">
+					<form id="loginform" method="post" action="${pageContext.request.contextPath }/servlet/LoginServlet">
 
 						<p>
 							<label class="required" for="username">用户名:</label><br/>
@@ -136,7 +144,7 @@ function reloadcode()
 						<p>
 							<label class="required" for="password">验证码:</label><br/>
 							<input type="text" id="vcode" class="half" value="" name="vcode"/>
-                            <img onclick="reloadcode();" src="patchca.png" style="height:24px; width:20%; vertical-align:bottom; margin-left:4px;" id="icode"/>
+                            <img onClick="reloadcode();" src="${pageContext.request.contextPath }/patchca.png" style="height:24px; width:20%; vertical-align:bottom; margin-left:4px;" id="icode"/>
 						</p>
 						<p>
 							<input type="checkbox" id="remember" class="" value="1" name="remember"/>
@@ -179,6 +187,6 @@ function reloadcode()
 	<!-- End of Page footer -->
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="js/administry.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/administry.js"></script>
 </body>
 </html>

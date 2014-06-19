@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import cn.edu.hbcit.dao.LoginDao;
 import cn.edu.hbcit.dao.RightsDao;
 import cn.edu.hbcit.utils.*;
 
@@ -87,10 +88,11 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out =response.getWriter();
 		HttpSession session = request.getSession();
 		
-		boolean flag = true;
+		boolean flag = false;
 		MD5 md5 = new MD5();
 		RightsDao rd = new RightsDao();
 		CalenderUtil cu = new CalenderUtil();
+		LoginDao ld = new LoginDao();
 		
 		String chknumber = request.getParameter("vcode");
 		String username = request.getParameter("username");
@@ -100,20 +102,34 @@ public class LoginServlet extends HttpServlet {
 		if(captcha!= null && chknumber != null){
 			if(captcha.equals(chknumber)){
 				log.debug(md5.MD5Encode(password));
+				flag = ld.isLogin(username, md5.MD5Encode(password));//验证登录
 				if(flag){
 					//获取权限，是否专业负责人
 					session.setAttribute("MajorsManager", rd.isMajorsManager(username));
-					log.debug(rd.isMajorsManager(username));
+					log.debug("是否专业负责人:" + rd.isMajorsManager(username));
 					//获取权限，是否系主任
 					session.setAttribute("DepartmentManager", rd.isDepartmentManager(username));
-					log.debug(rd.isDepartmentManager(username));
+					log.debug("是否系主任:" + rd.isDepartmentManager(username));
 					//获取学期名称
 					session.setAttribute("Semester", cu.getSemester());
+					log.debug(cu.getSemester());
 					//获取当前登录用户名
 					session.setAttribute("username", username);
-					log.debug(cu.getSemester());
+					//获取真实名
+					session.setAttribute("realname", rd.getRealName(username));
+					//获取用户IP
+					String ip = this.getIpAddr(request);
+					session.setAttribute("ip", ip);
+					log.debug("用户登录IP：" + ip);
+					
 					request.getRequestDispatcher("MainServlet").forward(request, response);
+				}else{
+					request.setAttribute("msg", "error");//用户名密码错
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
 				}
+			}else{
+				request.setAttribute("msg", "warning");//验证码错
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 		}
 		
@@ -126,6 +142,27 @@ public class LoginServlet extends HttpServlet {
 	 */
 	public void init() throws ServletException {
 		// Put your code here
+	}
+	
+	/**
+	 * 获得用户真实IP地址
+	 * @param request
+	 * @return String IP
+	 */
+	public String getIpAddr(HttpServletRequest request) { 
+		String ip = request.getHeader("x-forwarded-for"); 
+	    //String ip = request.getRemoteAddr(); 
+	    log.debug(ip);
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+	        ip = request.getHeader("Proxy-Client-IP"); 
+	    } 
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+	        ip = request.getHeader("WL-Proxy-Client-IP"); 
+	    } 
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+	        ip = request.getRemoteAddr(); 
+	    } 
+	    return ip; 
 	}
 
 }

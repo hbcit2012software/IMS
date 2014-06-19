@@ -54,39 +54,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	/* setup navigation, content boxes, etc... */
-	Administry.setup();
-	
-	/* progress bar animations - setting initial values */
-	Administry.progress("#progress1", 1, 5);
-	Administry.progress("#progress2", 2, 5);
-	Administry.progress("#progress3", 2, 5);
 
-	/* flot graphs */
-	var sales = [{
-		label: 'Total Paid',
-		data: [[1, 0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,900],[8,0],[9,0],[10,0],[11,0],[12,0]]
-	},{
-		label: 'Total Due',
-		data: [[1, 0],[2,0],[3,0],[4,0],[5,0],[6,422.10],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0]]
-	}
-	];
-
-	var plot = $.plot($("#placeholder"), sales, {
-		bars: { show: true, lineWidth: 1 },
-		legend: { position: "nw" },
-		xaxis: { ticks: [[1, "Jan"], [2, "Feb"], [3, "Mar"], [4, "Apr"], [5, "May"], [6, "Jun"], [7, "Jul"], [8, "Aug"], [9, "Sep"], [10, "Oct"], [11, "Nov"], [12, "Dec"]] },
-		yaxis: { min: 0, max: 1000 },
-		grid: { color: "#666" },
-		colors: ["#0a0", "#f00"]			
-    });
-
-
-});
-</script>
 
 <!---->
 <style type="text/css">
@@ -149,7 +117,7 @@ $(document).ready(function(){
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><img class="avatar" SRC="${pageContext.request.contextPath }/img/user_32.png" alt="" /></a>
-				当前用户 <b>Admin</b>
+				当前用户 <b>${sessionScope.username}</b>
 				<span>|</span> <a href="#">修改密码</a>
 				<span>|</span> <a href="#">安全退出</a><br />
 				<small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
@@ -307,12 +275,12 @@ $(document).ready(function(){
 								<tbody>
 								<c:forEach items="${requestScope.Course }" var="temp">
 									<tr>
-										<td>${temp.major_name }</td>
-										<td>${temp.course_name }</td>
-										<td>${temp.grade }级</td>
-										<td class="ta-right">${temp.class_hour }学时</td>
-										<td>${temp.begin_end_week }周</td>
-										<td>
+										<td width="20%">${temp.major_name }</td>
+										<td width="30%">${temp.course_name }</td>
+										<td width="10%">${temp.grade }级</td>
+										<td width="10%">${temp.class_hour }学时</td>
+										<td width="20%">${temp.begin_end_week }周</td>
+										<td width="10%">
 										<c:if test="${temp.course_type == '0'}">考查课</c:if>
 										<c:if test="${temp.course_type == '1'}">考试课</c:if>
 										</td>
@@ -368,24 +336,23 @@ $(document).ready(function(){
 						</header>
 						<dl class="first">
 							<dt><img width="16" height="16" alt="" SRC="${pageContext.request.contextPath }/img/key.png"></dt>
-							<dd><a href="#">用户名</a></dd>
-							<dd class="last">Free Account.</dd>
+							<dd><a href="#">当前登录人</a></dd>
+							<dd class="last" style="font-size:1em;">${sessionScope.realname}</dd>
 							
 							<dt><img width="16" height="16" alt="" SRC="${pageContext.request.contextPath }/img/help.png"></dt>
 							<dd><a href="#">登录IP</a></dd>
-							<dd class="last">Documentation and FAQ</dd>
+							<dd class="last">${sessionScope.ip}</dd>
 						</dl>
 					</div>
 					<div class="content-box">
 						<header>
-							<h3>Latest in the Community</h3>
+							<h3>关于本系统</h3>
 						</header>
 						<section>
 							<dl>
-								<dt>Maximize every interaction with a client</dt>
-								<dd><a href="#">Read more</a></dd>
-								<dt>Diversification for Small Business Owners</dt>
-								<dd><a href="#">Read more</a></dd>
+								<dt>IMS在线教学管理系统</dt>
+                                <dt>Instructional Management System</dt>
+								<dd>本系统是河北工业职业技术学院2012级软件技术专业实训项目，旨在帮助系部进行日常教学、人才培养水平评估、专业建设、高等职业院校人才培养工作状态数据采集等工作。</dd>
 							</dl>
 						</section>
 					</div>
@@ -398,7 +365,7 @@ $(document).ready(function(){
 	<!-- End of Page content -->
 	
 	<!-- Page footer -->
-	<footer id="bottom">
+<!--	<footer id="bottom">
 		<div class="wrapper">
 			<nav>
 				<a href="#">Dashboard</a> &middot;
@@ -412,11 +379,11 @@ $(document).ready(function(){
 			</nav>
 			<p>Copyright &copy; 2010</p>
 		</div>
-	</footer>
+	</footer>-->
 	<!-- End of Page footer -->
 	
 	<!-- Animated footer -->
-	<footer id="animated">
+<!--	<footer id="animated">
 		<ul>
 			<li><a href="#">Dashboard</a></li>
 			<li><a href="#">Content</a></li>
@@ -427,7 +394,7 @@ $(document).ready(function(){
 			<li><a href="#">Newsletter</a></li>
 			<li><a href="#">Settings</a></li>
 		</ul>
-	</footer>
+	</footer>-->
 	<!-- End of Animated footer -->
 	
 	<!-- Scroll to top link -->

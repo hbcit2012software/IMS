@@ -36,9 +36,30 @@ public class LoginDao {
 
 	protected final Logger log = Logger.getLogger(LoginDao.class.getName());
 	
+	/**
+	 * 登录
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public boolean isLogin(String username, String password){
 		boolean flag = false;
+		ArrayList<Users> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Users users = new Users();
+			QueryRunner qr = new QueryRunner();
+			String sql = "SELECT PK_users FROM tb_users WHERE PK_users=? AND password=?";
 		
+			list = (ArrayList<Users>)qr.query(conn, sql, new BeanListHandler(Users.class),username, password);
+			if(list.size() > 0){
+				flag = true;
+			}
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return flag;
 	}
 	
