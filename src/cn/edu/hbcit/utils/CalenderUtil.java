@@ -56,7 +56,7 @@ public class CalenderUtil {
 	 * 返回学年和返回第一学期或者是第二学期 semester 学期 schoolyear 学年
 	 * 
 	 * @param date
-	 * @return
+	 * @return "2013-2014-2"
 	 * 
 	 *         public static String getSemesterschoolyear() { SimpleDateFormat
 	 *         format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINESE);
@@ -98,7 +98,7 @@ public class CalenderUtil {
 	/**
 	 * 返回学年和第几学期
 	 * 
-	 * @return
+	 * @return "2013-2014学年 第二学期"
 	 */
 	public static String getSemester() {
 		String date = getSemesterSchoolYear();

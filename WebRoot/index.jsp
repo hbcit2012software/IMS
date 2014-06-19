@@ -122,7 +122,7 @@ function reloadcode()
 					
 					<div class="box box-info">请输入用户名和密码</div>
 
-					<form id="loginform" method="post" action="main.html">
+					<form id="loginform" method="post" action="main.jsp">
 
 						<p>
 							<label class="required" for="username">用户名:</label><br/>

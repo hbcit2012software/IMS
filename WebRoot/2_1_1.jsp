@@ -89,7 +89,7 @@ $(document).ready(function(){
 			<!-- Main navigation -->
 			<nav id="menu">
 				<ul class="sf-menu">
-					<li><a HREF="main.html">系统首页</a></li>
+					<li><a HREF="main.jsp">系统首页</a></li>
 					<li  >
 						<a HREF="styles.html">专业管理</a>
 						<ul>

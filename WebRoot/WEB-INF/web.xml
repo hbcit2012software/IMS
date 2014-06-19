@@ -39,6 +39,11 @@
     <servlet-name>UpdateMajors</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.UpdateMajors</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.MainServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -82,6 +87,10 @@
   <servlet-mapping>
     <servlet-name>UpdateMajors</servlet-name>
     <url-pattern>/servlet/UpdateMajors</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/servlet/MainServlet</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

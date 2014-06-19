@@ -12,8 +12,10 @@
 package cn.edu.hbcit.dao;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import cn.edu.hbcit.pojo.*;
+import cn.edu.hbcit.utils.CalenderUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -38,6 +40,32 @@ public class LoginDao {
 		boolean flag = false;
 		
 		return flag;
+	}
+	
+	/**
+	 * 根据当前学期，查询开学日期
+	 * @return
+	 */
+	public String selectBeginDate(){
+		String result = "";
+		CalenderUtil cu = new CalenderUtil();
+		String nowTerm = cu.getSemester();
+		ArrayList<Terms> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Terms t = new Terms();
+			QueryRunner qr = new QueryRunner();
+			String sql = "SELECT begin_date FROM tb_terms where term=?";
+		
+			list = (ArrayList<Terms>)qr.query(conn, sql, new BeanListHandler(Terms.class),nowTerm);
+			for(Terms term:list)
+				result=term.getBegin_date();
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 }

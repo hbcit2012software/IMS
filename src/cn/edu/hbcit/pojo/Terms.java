@@ -7,6 +7,7 @@ package cn.edu.hbcit.pojo;
  */
 public class Terms {
 	private int PK_term;
+	private String begin_date;
 	private String term;
 	/**
 	.
@@ -33,6 +34,12 @@ public class Terms {
 	 */
 	public void setTerm(String term) {
 		this.term = term;
+	}
+	public String getBegin_date() {
+		return begin_date;
+	}
+	public void setBegin_date(String begin_date) {
+		this.begin_date = begin_date;
 	}
 
 }
