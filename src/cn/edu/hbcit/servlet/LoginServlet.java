@@ -152,7 +152,6 @@ public class LoginServlet extends HttpServlet {
 	public String getIpAddr(HttpServletRequest request) { 
 		String ip = request.getHeader("x-forwarded-for"); 
 	    //String ip = request.getRemoteAddr(); 
-	    log.debug(ip);
 	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
 	        ip = request.getHeader("Proxy-Client-IP"); 
 	    } 
