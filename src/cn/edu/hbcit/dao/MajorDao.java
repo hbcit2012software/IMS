@@ -108,4 +108,34 @@ public class MajorDao {
 		return list;
 	}
 	
+	/**
+	 * 根据ID修改专业信息
+	 * @param major_name
+	 * @param major_code
+	 * @param years
+	 * @param FK_users_majors
+	 * @param pk
+	 * @return
+	 */
+	public boolean updateMajors(String major_name, String major_code, String years, String FK_users_majors, int pk){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_majors SET  major_name=?, major_code=?, years=?, FK_users_majors=? WHERE PK_majors=? ";
+		
+			count = qr.update(conn, sql, major_name, major_code, years, FK_users_majors, pk);
+			
+			log.debug("修改专业数量：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
 }

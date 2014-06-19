@@ -35,6 +35,11 @@
     <servlet-name>SelectMajorById</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.SelectMajorById</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateMajors</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UpdateMajors</servlet-class>
+  </servlet>
+
 
 
 
@@ -73,6 +78,10 @@
   <servlet-mapping>
     <servlet-name>SelectMajorById</servlet-name>
     <url-pattern>/servlet/SelectMajorById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateMajors</servlet-name>
+    <url-pattern>/servlet/UpdateMajors</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>
