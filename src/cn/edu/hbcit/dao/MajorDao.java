@@ -11,6 +11,7 @@
 */
 package cn.edu.hbcit.dao;
 
+import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
@@ -45,13 +46,44 @@ public class MajorDao {
 			String sql = "SELECT tb_majors.PK_majors,tb_majors.major_name,tb_majors.major_code,tb_majors.years,tb_majors.FK_users_majors,tb_users.true_name FROM tb_majors INNER JOIN tb_users ON tb_majors.FK_users_majors = tb_users.PK_users";
 		
 			list = (ArrayList<Majors>)qr.query(conn, sql, new BeanListHandler(Majors.class));
+			
+			DbUtils.closeQuietly(conn);//关闭连接
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return list;
+	}
+	
+	/**
+	 * 新增专业
+	 * @param major_name
+	 * @param major_code
+	 * @param years
+	 * @param FK_users_majors
+	 * @return
+	 */
+	public boolean addMajors(String major_name, String major_code, String years, String FK_users_majors){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "INSERT INTO tb_majors (major_name, major_code, years, FK_users_majors) values (?, ?, ?, ?)";
 		
+			count = qr.update(conn, sql, major_name, major_code, years, FK_users_majors);
+			
+			log.debug("新增专业数量：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
 	}
 	
 }

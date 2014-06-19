@@ -27,6 +27,11 @@
     <servlet-name>SelectMajors</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.SelectMajors</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddMajors</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.AddMajors</servlet-class>
+  </servlet>
+
 
 
 
@@ -55,6 +60,10 @@
   <servlet-mapping>
     <servlet-name>SelectMajors</servlet-name>
     <url-pattern>/servlet/SelectMajors</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddMajors</servlet-name>
+    <url-pattern>/servlet/AddMajors</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

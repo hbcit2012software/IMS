@@ -58,24 +58,44 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script src="js/IE8.js"></script>
 <![endif]-->
 <script type="text/javascript">
-$(document).ready(function(){
-	
-	/* setup navigation, content boxes, etc... */
-	Administry.setup();
-	
-	/* datatable */
-	$('#example').dataTable();
-	
-	/* expandable rows */
-	Administry.expandableRows();
-});
-
-$(function(){  
-       $.nyroModalSettings({  
-           width: 500, // width  
-           minHeight: 100 // height  
-       });  
-   }); 
+//动态表格设置
+		$(document).ready(function(){
+			/* setup navigation, content boxes, etc... */
+			Administry.setup();
+			/* datatable */
+			$('#example').dataTable();
+			/* expandable rows */
+			Administry.expandableRows();
+		});
+//弹出框样式设置
+		$(function(){  
+			   $.nyroModalSettings({  
+				   width: 500, // width  
+				   minHeight: 100 // height  
+			   });  
+		   }); 
+   
+   //新增专业ajax函数
+		function add(){
+			$.ajax({
+				url :"${pageContext.request.contextPath }/servlet/AddMajors",
+				type : 'post',
+				data : 'zybh=' + $("#zybh").attr("value") + 
+					   '&zymc=' + $("#zymc").attr("value") + 
+					   '&xz=' + $("#xz").val() + 
+					   '&zyfzr=' + $("#zyfzr").val(),
+				success : function(mm){ 
+					var revalue=mm.replace(/\r\n/g,'');
+					if(revalue=="success")
+					{
+								location.replace("${pageContext.request.contextPath}/servlet/SelectMajors");
+					}else{
+								window.location.reload();
+					}
+				}
+			});	
+		}
+		
 </script>
 
 
@@ -274,7 +294,7 @@ $(function(){
 			</c:forEach>
         </select>
         </td>
-      <td align="right"> <input type="submit" class="btn btn-green big" value="添加"></td>
+      <td align="right"> <input type="button" id="addmajor" onClick="add();" class="btn btn-green big" value="添加"></td>
        </tr>
 </table>
 </form>
