@@ -87,7 +87,7 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out =response.getWriter();
 		HttpSession session = request.getSession();
 		
-		boolean flag = false;
+		boolean flag = true;
 		MD5 md5 = new MD5();
 		RightsDao rd = new RightsDao();
 		CalenderUtil cu = new CalenderUtil();
@@ -109,7 +109,10 @@ public class LoginServlet extends HttpServlet {
 					log.debug(rd.isDepartmentManager(username));
 					//获取学期名称
 					session.setAttribute("Semester", cu.getSemester());
+					//获取当前登录用户名
+					session.setAttribute("username", username);
 					log.debug(cu.getSemester());
+					request.getRequestDispatcher("MainServlet").forward(request, response);
 				}
 			}
 		}

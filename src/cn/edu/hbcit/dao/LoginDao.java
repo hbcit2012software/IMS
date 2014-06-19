@@ -58,8 +58,9 @@ public class LoginDao {
 			String sql = "SELECT begin_date FROM tb_terms where term=?";
 		
 			list = (ArrayList<Terms>)qr.query(conn, sql, new BeanListHandler(Terms.class),nowTerm);
-			for(Terms term:list)
+			for(Terms term:list){
 				result=term.getBegin_date();
+			}
 			DbUtils.closeQuietly(conn);//关闭连接
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

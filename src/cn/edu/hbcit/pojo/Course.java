@@ -38,6 +38,8 @@ public class Course {
 	private int FK_majors_course;
 	private int FK_books_course_01;
 	private int FK_books_course_02;
+	private String begin_end_week;
+	private String major_name;
 	/**
 	 * @return the pK_course 
 	 */
@@ -385,6 +387,18 @@ public class Course {
 	 */
 	public void setFK_books_course_02(int fK_books_course_02) {
 		FK_books_course_02 = fK_books_course_02;
+	}
+	public String getBegin_end_week() {
+		return begin_end_week;
+	}
+	public void setBegin_end_week(String begin_end_week) {
+		this.begin_end_week = begin_end_week;
+	}
+	public String getMajor_name() {
+		return major_name;
+	}
+	public void setMajor_name(String major_name) {
+		this.major_name = major_name;
 	}
 	
 }

@@ -16,6 +16,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
 
+import cn.edu.hbcit.pojo.Course;
 import cn.edu.hbcit.pojo.Majors;
 import cn.edu.hbcit.pojo.Users;
 
@@ -137,5 +138,28 @@ public class MajorDao {
 			flag = true;
 		}
 		return flag;
+	}
+	
+	/**
+	 * 根据用户名查询专业和课程情况
+	 * @param user
+	 * @return
+	 */
+	public ArrayList selectMajorAndCourseByUser(String user){
+		ArrayList<Course> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Course c = new Course();
+			QueryRunner qr = new QueryRunner();
+			String sql = "    SELECT tb_course.PK_course, tb_course.course_name, tb_course.class_hour, tb_course.begin_end_week, tb_course.FK_users_course, tb_course.grade, tb_course.FK_terms_course, tb_course.course_type,tb_course.FK_majors_course, tb_majors.major_name FROM tb_course INNER JOIN tb_majors WHERE tb_majors.PK_majors = tb_course.FK_majors_course AND tb_course.FK_users_course=?";
+		
+			list = (ArrayList<Course>)qr.query(conn, sql, new BeanListHandler(Course.class), user);
+			
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 }
