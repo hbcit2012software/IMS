@@ -326,7 +326,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 							<td class="center">${temp.years }</td>
 							<td class="center">${temp.true_name }</td>
                             <td class="center">
-                               <a href="${pageContext.request.contextPath }/3_1_inner.jsp?${temp.PK_majors }" class="nyroModal" id="B" title="修改"> <img src="${pageContext.request.contextPath }/img/pencil.png" alt="Edit Meta" /></a>&nbsp; &nbsp; &nbsp; 
+                               <a href="${pageContext.request.contextPath }/servlet/SelectMajorById?id=${temp.PK_majors }" class="nyroModal" title="修改"> <img src="${pageContext.request.contextPath }/img/pencil.png" alt="Edit Meta" /></a>&nbsp; &nbsp; &nbsp; 
                                <a href="?${temp.PK_majors }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="Delete" /></a> 
                             </td>
 						</tr>

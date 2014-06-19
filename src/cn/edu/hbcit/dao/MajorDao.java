@@ -52,7 +52,6 @@ public class MajorDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return list;
 	}
 	
@@ -84,6 +83,29 @@ public class MajorDao {
 			flag = true;
 		}
 		return flag;
+	}
+	
+	/**
+	 * 根据id查询专业信息
+	 * @param id
+	 * @return
+	 */
+	public ArrayList selectMajorsById(int id){
+		ArrayList<Majors> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Majors majors = new Majors();
+			QueryRunner qr = new QueryRunner();
+			String sql = "SELECT tb_majors.PK_majors,tb_majors.major_name,tb_majors.major_code,tb_majors.years,tb_majors.FK_users_majors,tb_users.true_name FROM tb_majors INNER JOIN tb_users ON tb_majors.FK_users_majors = tb_users.PK_users WHERE tb_majors.PK_majors = ?";
+		
+			list = (ArrayList<Majors>)qr.query(conn, sql, new BeanListHandler(Majors.class), id);
+			
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 }
