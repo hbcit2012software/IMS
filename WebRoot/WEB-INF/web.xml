@@ -43,6 +43,11 @@
     <servlet-name>MainServlet</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.MainServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.LogoutServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -91,6 +96,10 @@
   <servlet-mapping>
     <servlet-name>MainServlet</servlet-name>
     <url-pattern>/servlet/MainServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/servlet/LogoutServlet</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

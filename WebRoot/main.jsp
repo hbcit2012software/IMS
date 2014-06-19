@@ -115,13 +115,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 			<!-- Title/Logo - can use text instead of image -->
 			<div id="title"><img SRC="${pageContext.request.contextPath }/img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Top navigation -->
-			<div id="topnav">
-				<a href="#"><img class="avatar" SRC="${pageContext.request.contextPath }/img/user_32.png" alt="" /></a>
-				当前用户 <b>${sessionScope.username}</b>
-				<span>|</span> <a href="#">修改密码</a>
-				<span>|</span> <a href="#">安全退出</a><br />
-				<small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
-			</div>
+			<jsp:include page="topnav.jsp"></jsp:include>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
 			<jsp:include page="menu.jsp">

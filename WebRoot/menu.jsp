@@ -3,7 +3,7 @@
 <%pageContext.setAttribute("current",request.getParameter("menu"));%>
 			<nav id="menu">
 				<ul class="sf-menu">
-					<li  <c:if test="${current == '0'}">class="current" </c:if> ><a HREF="${pageContext.request.contextPath }/main.jsp">系统首页</a></li>
+					<li  <c:if test="${current == '0'}">class="current" </c:if> ><a HREF="${pageContext.request.contextPath }/servlet/MainServlet">系统首页</a></li>
 <c:if test="${sessionScope.MajorsManager == true || sessionScope.DepartmentManager == true}">
 					<li <c:if test="${current == '1'}">class="current" </c:if> ><a HREF="#">专业管理</a>
 						<ul>
@@ -46,7 +46,7 @@
 					</li>
 </c:if>
 					
-                    <li><a HREF="#" <c:if test="${current == '2'}">class="current" </c:if> >课程管理</a>
+                    <li <c:if test="${current == '2'}">class="current" </c:if> ><a HREF="#">课程管理</a>
                     <ul>
 							<li>
 								<a href="#">期初工作</a>
@@ -91,7 +91,7 @@
 						</ul>
                     </li>	
 <c:if test="${sessionScope.DepartmentManager == true}">                    
-                    <li><a HREF="#" <c:if test="${current == '3'}">class="current" </c:if> >系统管理</a>
+                    <li <c:if test="${current == '3'}">class="current" </c:if> ><a HREF="#">系统管理</a>
                     <ul>
 							<li>
 								<a href="#">专业维护</a>
