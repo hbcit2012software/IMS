@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.util.*" errorPage=""  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,12 +114,14 @@ $(document).ready(function(){
 		      <fieldset>
 		        <legend>期初PPT</legend>
 		        <table class="no-style" width="100%">
+		        <c:forEach items="${requestScope.majorList}" var="majorlist">
 		          <tr>
-		            <td><span class="label label-gray">专业名称</span> &nbsp;&nbsp; 软件技术专业</td>
-		            <td><span class="label label-gray">专业代码</span> &nbsp;&nbsp; 590108</td>
-		            <td><span class="label label-gray">学制</span> &nbsp;&nbsp; 三年</td>
-		            <td><span class="label label-gray">当前学期</span> &nbsp;&nbsp; 2013-2014学年第二学期</td>
+		            <td><span class="label label-gray">专业名称</span> &nbsp;&nbsp;${majorlist.major_name}</td>
+		            <td><span class="label label-gray">专业代码</span> &nbsp;&nbsp;${majorlist.major_code}</td>
+		            <td><span class="label label-gray">学制</span> &nbsp;&nbsp; ${majorlist.years}</td>
+		            <td><span class="label label-gray">当前学期</span> &nbsp;&nbsp; ${sessionScope.Semester}</td>
 	              </tr>
+	              </c:forEach>
 		          <tr>
 		            <td colspan="4">
                     <p class="box"> <span>课程名称：</span>
@@ -162,12 +165,12 @@ $(document).ready(function(){
 		        <tbody>
 		        <c:forEach items="${requestScope.MajorCourseTerms}" var="mct">
 		          <tr>
-		            <td class="center">${mct.term}</td>
+		            <td class="center"><input type="hidden" value="${mct.PK_course }" name="test01">${mct.term}</td>	
 		            <td class="center">${mct.major_name}</td>
 		            <td class="center">${mct.course_name}</td>
                     <td class="center">${mct.grade}</td>
-		            <td class="center">${mct.begin_term_ppt}</td>
-		             <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="Edit" /></a></td>
+		            <td class="center">${fn:substringAfter(mct.begin_term_ppt,"userfiles/")}</td>
+		            <td class="center"><a href="${mct.begin_term_ppt}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/deleteBeginPPTById?id=${mct.PK_course }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
 	              </tr>
 		        </c:forEach>
 	            </tbody>

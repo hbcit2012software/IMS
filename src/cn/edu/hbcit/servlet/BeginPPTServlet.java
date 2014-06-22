@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import cn.edu.hbcit.dao.CourseDao;
 import cn.edu.hbcit.dao.MajorDao;
-import cn.edu.hbcit.dao.RightsDao;
 //import cn.edu.hbcit.dao.TermsDao;
 
 /**
@@ -75,9 +74,13 @@ public class BeginPPTServlet extends HttpServlet {
 		response.setHeader("Cache-control", "no-cache");
 		response.setDateHeader("Expires", 0);
 		CourseDao cd = new CourseDao();
+		MajorDao md=new MajorDao();
 		ArrayList MajorsCourseTerms=null;
+		ArrayList majorList=null;
+		majorList=	md.selectMajorByUser((String)session.getAttribute("username"));
 		MajorsCourseTerms=cd.selectMajorCourseTermsByusername((String)session.getAttribute("username"));
 		request.setAttribute("MajorCourseTerms", MajorsCourseTerms);//课程信息
+		request.setAttribute("majorList", majorList);//专业信息
 		request.getRequestDispatcher("/2_1_1.jsp").forward(request, response);
 	}
 

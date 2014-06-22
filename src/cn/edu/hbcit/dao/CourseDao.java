@@ -79,4 +79,26 @@ public class CourseDao {
 		}
 		return flag;
 	}
+	public boolean deleteBeginppt(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET begin_term_ppt=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql,string,course_id);
+			
+			log.debug("删除PPT：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
 }
