@@ -67,4 +67,25 @@ public class UploadTools {
 		}
 		return path;
 	}
+	
+	/**
+	 * 获取jspSmartUpload的request参数
+	 * @param request
+	 * @param response
+	 * @param config
+	 * @param paramName
+	 * @return
+	 */
+	public String getFileParameter(HttpServletRequest request, HttpServletResponse response, ServletConfig config, String paramName){
+		String parameter = null;
+		SmartUpload su = new SmartUpload(); //实例化jspSmartUpload
+		try {
+			su.initialize(config, request, response);
+			parameter = su.getRequest().getParameter(paramName);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// 初始化SmartUpload
+		return parameter;
+	}
 }
