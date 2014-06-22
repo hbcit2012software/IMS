@@ -162,4 +162,19 @@ public class MajorDao {
 		}
 		return list;
 	}
+	public ArrayList selectMajorByUser(String user){
+		ArrayList<Majors> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Majors m = new Majors();
+			QueryRunner qr = new QueryRunner();
+			String sql = "SELECT * FROM tb_majors WHERE FK_users_majors=?";
+			list = (ArrayList<Majors>)qr.query(conn, sql, new BeanListHandler(Majors.class), user);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
