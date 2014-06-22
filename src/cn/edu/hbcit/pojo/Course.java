@@ -40,6 +40,8 @@ public class Course {
 	private int FK_books_course_02;
 	private String begin_end_week;
 	private String major_name;
+	private String term;
+	private String PK_majors;
 	/**
 	 * @return the pK_course 
 	 */
@@ -399,6 +401,30 @@ public class Course {
 	}
 	public void setMajor_name(String major_name) {
 		this.major_name = major_name;
+	}
+	/**
+	 * @return the term
+	 */
+	public String getTerm() {
+		return term;
+	}
+	/**
+	 * @param term the term to set
+	 */
+	public void setTerm(String term) {
+		this.term = term;
+	}
+	/**
+	 * @return the pK_majors
+	 */
+	public String getPK_majors() {
+		return PK_majors;
+	}
+	/**
+	 * @param pKMajors the pK_majors to set
+	 */
+	public void setPK_majors(String pKMajors) {
+		PK_majors = pKMajors;
 	}
 	
 }

@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.util.*" errorPage="" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +12,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <![endif]-->
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="img/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="img/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="img/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="${pageContext.request.contextPath }/img/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="${pageContext.request.contextPath }/img/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="${pageContext.request.contextPath }/img/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -24,29 +26,29 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="css/custom.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="js/swfobject.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="js/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="js/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="js/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.supersubs.min.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="js/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="js/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.nyroModal.pack.js"></script>
 <!-- jQuery graph plugins -->
 <!--[if IE]><script type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
-<script type="text/javascript" SRC="js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/flot/jquery.flot.min.js"></script>
 <!-- jQuery data tables -->
-<script type="text/javascript" SRC="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.dataTables.min.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -68,7 +70,6 @@ $(document).ready(function(){
 	/* expandable rows */
 	Administry.expandableRows();
 });
-
 </script>
 </head>
 <body>
@@ -76,141 +77,14 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="${pageContext.request.contextPath }/img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Top navigation -->
-			<div id="topnav">
-				<a href="#"><img class="avatar" SRC="img/user_32.png" alt="" /></a>
-				当前用户 <b>Admin</b>
-				<span>|</span> <a href="#">修改密码</a>
-				<span>|</span> <a href="#">安全退出</a><br />
-				<small>现在是 <a href="#" class="high">2013-2014学年第二学期 第<b>1</b>周</a></small>
-			</div>
+			<jsp:include page="topnav.jsp"></jsp:include>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
-			<nav id="menu">
-				<ul class="sf-menu">
-					<li><a HREF="main.jsp">系统首页</a></li>
-					<li  >
-						<a HREF="styles.html">专业管理</a>
-						<ul>
-							<li>
-								<a href="#">期初工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">教研室活动计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期中工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">教研室活动记录</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期末工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">本学期工作总结</a></li>
-									<li><a HREF="samples-products.html">下学期工作计划</a></li>
-								</ul>
-							</li>
-                             <li>
-								<a href="#">开课设置</a>
-								<ul>
-									<li><a HREF="samples-files.html">下学期课程设置</a></li>
-									<li><a HREF="samples-products.html">下学期开课计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">专业统计</a>
-								<ul>
-									<li><a HREF="samples-files.html">期初统计</a></li>
-									<li><a HREF="samples-files.html">期中统计</a></li>
-                                    <li><a HREF="samples-files.html">期末统计</a></li>
-                                    <li><a HREF="samples-files.html">学期统计</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-                    <li class="current">
-                    <a HREF="graphs.html">课程管理</a>
-                    <ul>
-							<li>
-								<a href="#">期初工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">期初PPT</a></li>
-                                    <li><a HREF="samples-files.html">期初教案</a></li>
-                                    <li><a HREF="samples-files.html">期初教案首页</a></li>
-                                    <li><a HREF="samples-files.html">授课计划</a></li>
-                                    <li><a HREF="samples-files.html">听课计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期中工作</a>
-								<ul>
-                                    <li><a HREF="samples-files.html">期中教案</a></li>
-                                    <li><a HREF="samples-files.html">期中教案首页</a></li>
-                                    <li><a HREF="samples-files.html">期中PPT</a></li>
-                                    <li><a HREF="samples-files.html">答疑记录</a></li>
-                                     <li><a HREF="samples-files.html">听课记录</a></li>
-                                    <li><a HREF="samples-files.html">学生作业</a></li>
-                                    <li><a HREF="samples-files.html">实践指导书</a></li>
-                                    <li><a HREF="samples-files.html">实践任务书</a></li>
-                                    <li><a HREF="samples-files.html">实践教学计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期末工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">期末试卷</a></li>
-									<li><a HREF="samples-products.html">期末成绩</a></li>
-                                    <li><a HREF="samples-products.html">成绩分析</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">课程统计</a>
-								<ul>
-									<li><a HREF="samples-files.html">期初统计</a></li>
-									<li><a HREF="samples-files.html">期中统计</a></li>
-                                    <li><a HREF="samples-files.html">期末统计</a></li>
-                                    <li><a HREF="samples-files.html">学期统计</a></li>
-								</ul>
-							</li>
-						</ul>
-                    </li>	
-                    <li>
-                    <a HREF="graphs.html">系统管理</a>
-                    <ul>
-							<li>
-								<a href="#">专业维护</a>
-								<ul>
-									<li><a HREF="samples-files.html">新增专业</a></li>
-                                    <li><a HREF="samples-files.html">专业列表</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">数据维护</a>
-								<ul>
-                                    <li><a HREF="samples-files.html">数据备份</a></li>
-                                    <li><a HREF="samples-files.html">数据恢复</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">全局设置</a>
-								<ul>
-									<li><a HREF="samples-files.html">新增学期</a></li>
-									<li><a HREF="samples-products.html">学期管理</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">用户设置</a>
-								<ul>
-									<li><a HREF="samples-files.html">新增用户</a></li>
-									<li><a HREF="samples-products.html">用户列表</a></li>
-								</ul>
-							</li>
-						</ul>
-                    </li>
-				</ul>
-			</nav>
+			<jsp:include page="menu.jsp">
+            	<jsp:param name="menu" value="2" />
+            </jsp:include>
 			<!-- End of Main navigation -->
 			<!-- Aside links -->
 			<aside><b>常用链接</b> &middot; <a href="http://www.hbcit.edu.cn">学院网站</a> &middot; <a href="http://jsjx.hbcit.edu.cn">系部网站</a></aside>
@@ -235,7 +109,7 @@ $(document).ready(function(){
 		  <!-- Left column/section -->
 		  <section class="column width8">
 		    <!--	<h3>新增教研室活动计划</h3>-->
-		    <form id="sampleform" method="post" action="#">
+		    <form id="sampleform"  name="kcid" method="post" action="${pageContext.request.contextPath }/servlet/UploadBeginPPT" ENCTYPE="multipart/form-data">
 		      <fieldset>
 		        <legend>期初PPT</legend>
 		        <table class="no-style" width="100%">
@@ -248,16 +122,26 @@ $(document).ready(function(){
 		          <tr>
 		            <td colspan="4">
                     <p class="box"> <span>课程名称：</span>
-		              <select  name="class" style="width:150px;">
-		                <option name="java" value="java">java基本课程</option>
-		                <option name="jsp" value="jsp">jsp</option>
+                    <input type="hidden" value="AAAAAAA" name="test01">
+                    <input type="hidden" value="BBBBBBB" name="test02">
+                    <input type="hidden" value="CCCCCCC" name="test03">
+		              <select id="kcid" name="kcid" style="width:150px;">
+		                <c:forEach items="${requestScope.MajorCourseTerms}" var="major">
+							<optgroup label="${major.major_name}">
+								<c:forEach items="${requestScope.MajorCourseTerms}" var="course">
+									<c:if test="${course.FK_majors_course == major.PK_majors}"> 
+										<option value="${course.PK_course}">${course.course_name}</option>
+									</c:if>
+								</c:forEach>
+							</optgroup>
+		                </c:forEach>
 	                  </select>
 		              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 	              选择文件:&nbsp;&nbsp;
-		              <input type="file" style="width:auto;">
-		              <input type="submit" class="btn btn-green big" value="上传"/>
-		              </p></td>
+		              <input type="file" style="width:auto;" name="accessories">
+		              <input type="submit" id="beginppt"  class="btn btn-green big" value="上传"/>
+		              </p></td>  
 	              </tr>
 	            </table>
 	          </fieldset>
@@ -269,55 +153,23 @@ $(document).ready(function(){
 		          <tr>
 		            <th width="25%"><div align="center">所在学期</div></th>
 		            <th width="20%"><div align="center">专业名称</div></th>
+		            <th width="20%"><div align="center">课程名称</div></th>
 		            <th width="45%"><div align="center">所在年级</div></th>
                     <th width="45%"><div align="center">PPT附件</div></th>
 		            <th width="10%"><div align="center">操作</div></th>
 	              </tr>
 	            </thead>
 		        <tbody>
+		        <c:forEach items="${requestScope.MajorCourseTerms}" var="mct">
 		          <tr>
-		            <td class="center">2013-2014学年第二学期</td>
-		            <td class="center">软件技术专业</td>
-                    <td class="center">软件二班</td>
-		            <td class="center">附件5：2014版人才培养方案（软件普通班）.doc</td>
-		             <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="img/cross.png" alt="Edit" /></a></td>
+		            <td class="center">${mct.term}</td>
+		            <td class="center">${mct.major_name}</td>
+		            <td class="center">${mct.course_name}</td>
+                    <td class="center">${mct.grade}</td>
+		            <td class="center">${mct.begin_term_ppt}</td>
+		             <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="Edit" /></a></td>
 	              </tr>
-		          <tr>
-		           <td class="center">2013-2014学年第二学期</td>
-		            <td class="center">软件技术专业</td>
-                    <td class="center">软件二班</td>
-		            <td class="center">附件5：2014版人才培养方案（软件普通班）.doc</td>
-		           <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="img/cross.png" alt="Edit" /></a></td>
-                              
-	              </tr>
-		          <tr>
-		            <td class="center">2013-2014学年第二学期</td>
-		            <td class="center">软件技术专业</td>
-                    <td class="center">软件二班</td>
-		            <td class="center">附件5：2014版人才培养方案（软件普通班）.doc</td>
-		            <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="img/cross.png" alt="Edit" /></a></td>
-	              </tr>
-		          <tr>
-		            <td class="center">2013-2014学年第二学期</td>
-		            <td class="center">软件技术专业</td>
-                    <td class="center">软件二班</td>
-		            <td class="center">附件5：2014版人才培养方案（软件普通班）.doc</td>
-		            <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="img/cross.png" alt="Edit" /></a></td>
-	              </tr>
-		          <tr>
-		            <td class="center">2013-2014学年第二学期</td>
-		            <td class="center">软件技术专业</td>
-                    <td class="center">软件二班</td>
-		            <td class="center">附件5：2014版人才培养方案（软件普通班）.doc</td>
-		            <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="img/cross.png" alt="Edit" /></a></td>
-	              </tr>
-		          <tr>
-		            <td class="center">2013-2014学年第二学期</td>
-		            <td class="center">软件技术专业</td>
-                    <td class="center">软件二班</td>
-		            <td class="center">附件5：2014版人才培养方案（软件普通班）.doc</td>
-		            <td class="center"><a href="#" title="下载"><img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="删除"><img src="img/cross.png" alt="Edit" /></a></td>
-	              </tr>
+		        </c:forEach>
 	            </tbody>
 	          </table>
 	        </fieldset>
@@ -365,6 +217,6 @@ $(document).ready(function(){
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="js/administry.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/administry.js"></script>
 </body>
 </html>

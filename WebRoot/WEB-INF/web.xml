@@ -47,6 +47,16 @@
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>BeginPPTServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.BeginPPTServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadBeginPPT</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadBeginPPT</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -100,6 +110,14 @@
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/servlet/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BeginPPTServlet</servlet-name>
+    <url-pattern>/servlet/BeginPPTServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadBeginPPT</servlet-name>
+    <url-pattern>/servlet/UploadBeginPPT</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

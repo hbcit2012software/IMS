@@ -2,6 +2,7 @@ package cn.edu.hbcit.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -37,8 +38,11 @@ public class DemoUploadServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		UploadTools ut = new UploadTools();
-		String savePath = ut.upload(request, response, config);
-		log.debug("上传成功：" + savePath);
+		ArrayList list = new ArrayList();
+		
+		String[] params = {};
+		list = ut.upload(request, response, config, params);
+		log.debug("上传成功：" + (String)list.get(1));
 	}
 
 	/**

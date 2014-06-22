@@ -51,7 +51,7 @@
 							<li>
 								<a href="#">期初工作</a>
 								<ul>
-									<li><a HREF="samples-files.html">期初PPT</a></li>
+									<li><a HREF="${pageContext.request.contextPath }/servlet/BeginPPTServlet">期初PPT</a></li>
                                     <li><a HREF="samples-files.html">期初教案</a></li>
                                     <li><a HREF="samples-files.html">期初教案首页</a></li>
                                     <li><a HREF="samples-files.html">授课计划</a></li>
