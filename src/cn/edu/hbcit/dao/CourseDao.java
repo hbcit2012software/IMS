@@ -40,15 +40,15 @@ public class CourseDao {
 		}
 		return list;
 	}
-	public ArrayList selectMajorCourseTerms(){
+	public ArrayList selectMajorCourseTermsByusername(String username){
 		ArrayList<Course> list = null;
 		try {
 			Connection conn = Base.Connect();
 			Course course = new Course();
 			QueryRunner qr = new QueryRunner();
-			String sql = "select * from tb_course inner join tb_terms on FK_terms_course=PK_term inner join tb_majors on PK_majors=FK_majors_course";
+			String sql = "select * from tb_course inner join tb_terms on FK_terms_course=PK_term inner join tb_majors on PK_majors=FK_majors_course where FK_users_course=?";
 		
-			list = (ArrayList<Course>)qr.query(conn, sql, new BeanListHandler(Course.class));
+			list = (ArrayList<Course>)qr.query(conn, sql, new BeanListHandler(Course.class), username);
 			
 			DbUtils.closeQuietly(conn);//关闭连接
 		} catch (SQLException e) {
@@ -58,7 +58,7 @@ public class CourseDao {
 		return list;
 	}
 	
-	public boolean uploadBeginPpt(int course_id,String course_ppt ){
+	public boolean uploadBeginppt(int course_id,String course_ppt ){
 		int count = 0;
 		boolean flag = false;
 		try {
@@ -66,7 +66,7 @@ public class CourseDao {
 			QueryRunner qr = new QueryRunner();
 			String sql = "UPDATE tb_course SET begin_term_ppt=? WHERE PK_course=? ";
 		
-			count = qr.update(conn, sql, course_id,course_ppt);
+			count = qr.update(conn, sql, course_ppt,course_id);
 			
 			log.debug("上传PPT：" + count);
 			DbUtils.closeQuietly(conn);//关闭连接

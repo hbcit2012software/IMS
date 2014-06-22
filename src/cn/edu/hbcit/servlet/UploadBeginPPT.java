@@ -61,7 +61,7 @@ public class UploadBeginPPT extends HttpServlet {
 
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 		boolean flag = false;
 		int course_id = 0;
 		CourseDao cd = new CourseDao();
@@ -78,17 +78,22 @@ public class UploadBeginPPT extends HttpServlet {
 		
 		log.debug("上传成功kcid：" + (String)map.get("kcid"));
 		log.debug("上传成功path：" + path);
-		
 		//转换成整型之前一定要进行格式检查
 		if(util.isNumeric((String)map.get("kcid"))){
 			course_id=Integer.parseInt((String)map.get("kcid")); 
 		}
 		
-//		log.debug("major_name:" + savePath);
-//		flag = cd.uploadbeginppt(course_id, savePath);
-		
-		request.getRequestDispatcher("").forward(request, response);
-	}
+		log.debug("major_name:" + path);
+		flag = cd.uploadBeginppt(course_id, path);
+		if(flag){
+		request.setAttribute("msg", "上传成功");
+		request.getRequestDispatcher("BeginPPTServlet").forward(request, response);
+		}
+		else{
+			request.setAttribute("msg", "上传失败");
+			request.getRequestDispatcher("BeginPPTServlet").forward(request, response);
+		}
+		}
 
 	/**
 	 * Initialization of the servlet. <br>
