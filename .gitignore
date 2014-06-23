@@ -7,5 +7,9 @@
 *.war
 *.ear
 uploads/
-userfiles/
 classes/
+.settings/
+.project
+.classpath
+.mymetadata
+userfiles/
