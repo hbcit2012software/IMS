@@ -65,11 +65,12 @@
                                     <li><a HREF="samples-files.html">期中教案首页</a></li>
                                     <li><a HREF="samples-files.html">期中PPT</a></li>
                                     <li><a HREF="samples-files.html">答疑记录</a></li>
+                                    <li><a HREF="samples-files.html">听课记录</a></li>
                                     <li><a HREF="samples-files.html">学生作业</a></li>
                                     <li><a HREF="samples-files.html">实践指导书</a></li>
-                                    <li><a HREF="samples-files.html">实践任务书</a></li>
-                                    <li><a HREF="samples-files.html">实践教学计划</a></li>
-                                    <li><a HREF="samples-files.html">听课记录</a></li>
+                                    <li><a HREF="${pageContext.request.contextPath }/servlet/PracticeMissionNoteServlet">实践任务书</a></li>
+                                    <li><a HREF="${pageContext.request.contextPath }/servlet/PracticePlanServlet">实践教学计划</a></li>
+                                    
 								</ul>
 							</li>
                             <li>

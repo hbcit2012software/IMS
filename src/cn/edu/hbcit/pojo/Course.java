@@ -29,7 +29,7 @@ public class Course {
 	private String qa;
 	private String practice_note;
 	private String practice_mission_note;
-	private String pracitce_plan;
+	private String practice_plan;
 	private String paper;
 	private String score;
 	private String analyse;
@@ -285,14 +285,14 @@ public class Course {
 	/**
 	 * @return the pracitce_plan 
 	 */
-	public String getPracitce_plan() {
-		return pracitce_plan;
+	public String getPractice_plan() {
+		return practice_plan;
 	}
 	/**
 	 * @param pracitce_plan the pracitce_plan to set
 	 */
-	public void setPracitce_plan(String pracitce_plan) {
-		this.pracitce_plan = pracitce_plan;
+	public void setPractice_plan(String practice_plan) {
+		this.practice_plan = practice_plan;
 	}
 	/**
 	 * @return the paper 

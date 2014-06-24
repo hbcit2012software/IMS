@@ -119,7 +119,31 @@
     <servlet-name>SelectMajorSetPlan</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.SelectMajorSetPlan</servlet-class>
   </servlet>
+   <servlet>
+      <servlet-name>DeletePracticePlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeletePracticePlan</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadPracticePlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadPracticePlan</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>PracticePlanServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.PracticePlanServlet</servlet-class>
+  </servlet>
 
+   <servlet>
+      <servlet-name>DeletePracticeMissionNote</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeletePracticeMissionNote</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadPracticeMissionNote</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadPracticeMissionNote</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>PracticeMissionNoteServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.PracticeMissionNoteServlet</servlet-class>
+  </servlet>
 
 
 
@@ -237,6 +261,32 @@
   <servlet-mapping>
     <servlet-name>SelectMajorSetPlan</servlet-name>
     <url-pattern>/servlet/SelectMajorSetPlan</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>PracticePlanServlet</servlet-name>
+    <url-pattern>/servlet/PracticePlanServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>UploadPracticePlan</servlet-name>
+    <url-pattern>/servlet/UploadPracticePlan</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>DeletePracticePlan</servlet-name>
+    <url-pattern>/servlet/DeletePracticePlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>PracticeMissionNoteServlet</servlet-name>
+    <url-pattern>/servlet/PracticeMissionNoteServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>UploadPracticeMissionNote</servlet-name>
+    <url-pattern>/servlet/UploadPracticeMissionNote</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>DeletePracticeMissionNote</servlet-name>
+    <url-pattern>/servlet/DeletePracticeMissionNote</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

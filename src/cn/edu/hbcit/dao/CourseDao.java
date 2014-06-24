@@ -251,6 +251,11 @@ public class CourseDao {
 		}
 		return flag;
 	}
+	/**
+	 * 删除授课计划
+	 * @param course_id
+	 * @return
+	 */
 	public boolean deleteTeachPlan(int course_id){
 		int count = 0;
 		String string=null;
@@ -261,6 +266,105 @@ public class CourseDao {
 			String sql = "UPDATE tb_course SET teach_plan=? WHERE PK_course=? ";
 			count = qr.update(conn, sql,string,course_id);
 			log.debug("删除授课计划：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 上传实践教学计划
+	 * @param course_id
+	 * @param path
+	 * @return
+	 */
+	public boolean uploadPracticePlan(int course_id,String practice_plan ){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET practice_plan=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql, practice_plan,course_id);
+			
+			log.debug("上传授课计划：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 删除实践教学计划
+	 * @param course_id
+	 * @return
+	 */
+	public boolean deletePracticePlan(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET practice_plan=? WHERE PK_course=? ";
+			count = qr.update(conn, sql,string,course_id);
+			log.debug("删除实践教学计划：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 上传实践任务书
+	 * @param course_id
+	 * @param practice_plan
+	 * @return
+	 */
+	public boolean uploadPracticeMissionNote(int course_id,String practice_mission_note ){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET practice_mission_note=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql, practice_mission_note,course_id);
+			
+			log.debug("上传实践任务书：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	public boolean deletePracticeMissionNote(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET practice_mission_note=? WHERE PK_course=? ";
+			count = qr.update(conn, sql,string,course_id);
+			log.debug("删除实践任务书：" + count);
 			DbUtils.closeQuietly(conn);//关闭连接
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
