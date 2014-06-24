@@ -115,6 +115,11 @@
     <servlet-name>DeleteTeachPlan</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.DeleteTeachPlan</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SelectMajorSetPlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.SelectMajorSetPlan</servlet-class>
+  </servlet>
+
 
 
 
@@ -228,6 +233,10 @@
   <servlet-mapping>
     <servlet-name>DeleteTeachPlan</servlet-name>
     <url-pattern>/servlet/DeleteTeachPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMajorSetPlan</servlet-name>
+    <url-pattern>/servlet/SelectMajorSetPlan</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

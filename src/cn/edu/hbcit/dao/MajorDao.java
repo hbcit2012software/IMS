@@ -188,4 +188,34 @@ public class MajorDao {
 		}
 		return list;
 	}
+	/**
+	 * 查询某专业负责人所负责专业的信息
+	 * @param user
+	 * @return
+	 */
+	public ArrayList selectMajorByLeader(String user){
+		ArrayList<Majors> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Majors m = new Majors();
+			QueryRunner qr = new QueryRunner();
+
+			String sql = "    SELECT"
+						+"        tb_majors.PK_majors,"
+						+"        tb_majors.major_name,"
+						+"        tb_majors.major_code,"
+						+"        tb_majors.years,"
+						+"        tb_majors.FK_users_majors "
+						+"    FROM"
+						+"        tb_majors "
+						+"    WHERE tb_majors.FK_users_majors = ?";
+			list = (ArrayList<Majors>)qr.query(conn, sql, new BeanListHandler(Majors.class), user);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 }

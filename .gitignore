@@ -4,12 +4,16 @@
 .mtj.tmp/
 
 # Package Files #
+*.db
 *.war
 *.ear
+
 uploads/
 classes/
 .settings/
+userfiles/
+
 .project
 .classpath
 .mymetadata
-userfiles/
+

@@ -155,7 +155,7 @@ Administry.expandableRows();
                                           <tr>
                                             <th><div align="center">专业名称</div></th>
                                             <th><div align="center">专业代码</div></th>
-                                            <th><div align="center">学制</div></th>
+                                            <th><div align="center">学期</div></th>
                                             <th><div align="center">附件文件</div></th>
                                             <th><div align="center">操作</div></th>
                                           </tr>
@@ -214,7 +214,7 @@ Administry.expandableRows();
                                           <tr>
                                             <th><div align="center">专业名称</div></th>
                                             <th><div align="center">专业代码</div></th>
-                                            <th><div align="center">学制</div></th>
+                                            <th><div align="center">学期</div></th>
                                             <th><div align="center">附件文件</div></th>
                                             <th><div align="center">操作</div></th>
                                           </tr>
@@ -273,7 +273,7 @@ Administry.expandableRows();
                                           <tr>
                                             <th><div align="center">专业名称</div></th>
                                             <th><div align="center">专业代码</div></th>
-                                            <th><div align="center">学制</div></th>
+                                            <th><div align="center">学期</div></th>
                                             <th><div align="center">附件文件</div></th>
                                             <th><div align="center">操作</div></th>
                                           </tr>
