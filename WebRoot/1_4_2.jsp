@@ -1,16 +1,16 @@
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.util.*" errorPage="" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Admin Template</title>
-<meta name="description" content="Administry - Admin Template by www.865171.cn" />
-<meta name="keywords" content="Admin,Template" />
+<title>在线教学管理系统</title>
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="img/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="img/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="img/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="${pageContext.request.contextPath }/img/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="${pageContext.request.contextPath }/img/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="${pageContext.request.contextPath }/img/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -20,24 +20,24 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="css/custom.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="js/swfobject.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="js/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="js/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="js/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="js/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.supersubs.min.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="js/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="js/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.nyroModal.pack.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -75,7 +75,7 @@ Administry.expandableRows();
 
 <!--<script type="text/javascript" SRC="js/flot/jquery.flot.min.js"></script>-->
 <!-- jQuery data tables -->
-<script type="text/javascript" SRC="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery.dataTables.min.js"></script>
 
 
 
@@ -84,142 +84,14 @@ Administry.expandableRows();
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="${pageContext.request.contextPath }/img/logo_new.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Top navigation -->
-			<div id="topnav">
-				<a href="#"><img class="avatar" SRC="img/user_32.png" alt="" /></a>
-				当前用户 <b>Admin</b>
-				<span>|</span> <a href="#">修改密码</a>
-				<span>|</span> <a href="#">安全退出</a><br />
-				<small>现在是 <a href="#" class="high">2013-2014学年第二学期 第<b>1</b>周</a></small>
-			</div>
+			<jsp:include page="topnav.jsp"></jsp:include>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
-			<nav id="menu">
-				<ul class="sf-menu">
-					<li><a HREF="main.html">系统首页</a></li>
-					<li class="current" >
-						<a HREF="styles.html">专业管理</a>
-						<ul>
-							<li>
-								<a href="#">期初工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">教研室活动计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期中工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">教研室活动记录</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期末工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">本学期工作总结</a></li>
-									<li><a HREF="samples-products.html">下学期工作计划</a></li>
-								</ul>
-							</li>
-                             <li>
-								<a href="#">开课设置</a>
-								<ul>
-									<li><a HREF="samples-files.html">下学期课程设置</a></li>
-									<li><a HREF="samples-products.html">下学期开课计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">专业统计</a>
-								<ul>
-									<li><a HREF="samples-files.html">期初统计</a></li>
-									<li><a HREF="samples-files.html">期中统计</a></li>
-                                    <li><a HREF="samples-files.html">期末统计</a></li>
-                                    <li><a HREF="samples-files.html">学期统计</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-                    <li >
-                    <a HREF="graphs.html">课程管理</a>
-                    <ul>
-							<li>
-								<a href="#">期初工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">期初PPT</a></li>
-                                    <li><a HREF="samples-files.html">期初教案</a></li>
-                                    <li><a HREF="samples-files.html">期初教案首页</a></li>
-                                    <li><a HREF="samples-files.html">授课计划</a></li>
-                                    <li><a HREF="samples-files.html">听课计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期中工作</a>
-								<ul>
-                                    <li><a HREF="samples-files.html">期中教案</a></li>
-                                    <li><a HREF="samples-files.html">期中教案首页</a></li>
-                                    <li><a HREF="samples-files.html">期中PPT</a></li>
-                                    <li><a HREF="samples-files.html">答疑记录</a></li>
-                                    <li><a HREF="samples-files.html">听课记录</a></li>
-                                    <li><a HREF="samples-files.html">学生作业</a></li>
-                                    <li><a HREF="samples-files.html">实践指导书</a></li>
-                                    <li><a HREF="samples-files.html">实践任务书</a></li>
-                                    <li><a HREF="samples-files.html">实践教学计划</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">期末工作</a>
-								<ul>
-									<li><a HREF="samples-files.html">期末试卷</a></li>
-									<li><a HREF="samples-products.html">期末成绩</a></li>
-                                    <li><a HREF="samples-products.html">成绩分析</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">课程统计</a>
-								<ul>
-									<li><a HREF="samples-files.html">期初统计</a></li>
-									<li><a HREF="samples-files.html">期中统计</a></li>
-                                    <li><a HREF="samples-files.html">期末统计</a></li>
-                                    <li><a HREF="samples-files.html">学期统计</a></li>
-								</ul>
-
-							</li>
-						</ul>
-                    </li>	
-                    <li>
-                    <a HREF="graphs.html">系统管理</a>
-                    <ul>
-							<li>
-								<a href="#">专业维护</a>
-								<ul>
-									<li><a HREF="samples-files.html">新增专业</a></li>
-                                    <li><a HREF="samples-files.html">专业列表</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">数据维护</a>
-								<ul>
-                                    <li><a HREF="samples-files.html">数据备份</a></li>
-                                    <li><a HREF="samples-files.html">数据恢复</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">全局设置</a>
-								<ul>
-									<li><a HREF="samples-files.html">新增学期</a></li>
-									<li><a HREF="samples-products.html">学期管理</a></li>
-								</ul>
-							</li>
-                            <li>
-								<a href="#">用户设置</a>
-								<ul>
-									<li><a HREF="samples-files.html">新增用户</a></li>
-									<li><a HREF="samples-products.html">用户列表</a></li>
-								</ul>
-							</li>
-						</ul>
-                    </li>
-				</ul>
-			</nav>
+			<jsp:include page="menu.jsp">
+            	<jsp:param name="menu" value="1" />
+            </jsp:include>
 			<!-- End of Main navigation -->
 			<!-- Aside links -->
 			<aside><b>常用链接</b> &middot; <a href="http://www.hbcit.edu.cn">学院网站</a> &middot; <a href="http://jsjx.hbcit.edu.cn">系部网站</a></aside>
@@ -296,10 +168,10 @@ Administry.expandableRows();
                                             <td class="center" style="width:30%;">2014_03_06_654654654644664.doc</td>
                                             <td class="center" style="width:10%;">
                                                 <a href="${mct.begin_term_ppt}" title="下载">
-                                                <img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>
+                                                <img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a href="#" title="删除">
-                                                <img src="img/cross.png" />
+                                                <img src="${pageContext.request.contextPath }/img/cross.png" />
                                                 </a>
                                             </td>
                                           </tr>
@@ -355,10 +227,10 @@ Administry.expandableRows();
                                             <td class="center" style="width:30%;">2014_03_06_654654654644664.doc</td>
                                             <td class="center" style="width:10%;">
                                                 <a href="${mct.begin_term_ppt}" title="下载">
-                                                <img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>
+                                                <img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a href="#" title="删除">
-                                                <img src="img/cross.png" />
+                                                <img src="${pageContext.request.contextPath }/img/cross.png" />
                                                 </a>
                                             </td>
                                           </tr>
@@ -414,10 +286,10 @@ Administry.expandableRows();
                                             <td class="center" style="width:30%;">2014_03_06_654654654644664.doc</td>
                                             <td class="center" style="width:10%;">
                                                 <a href="${mct.begin_term_ppt}" title="下载">
-                                                <img width="16" height="16" alt="另存文件" src="img/page_save.png"></a>
+                                                <img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a href="#" title="删除">
-                                                <img src="img/cross.png" />
+                                                <img src="${pageContext.request.contextPath }/img/cross.png" />
                                                 </a>
                                             </td>
                                           </tr>
@@ -440,39 +312,13 @@ Administry.expandableRows();
 	<!-- Page footer -->
 	<footer id="bottom">
 		<div class="wrapper">
-			<nav>
-				<a href="#">Dashboard</a> &middot;
-				<a href="#">Content</a> &middot;
-				<a href="#">Reports</a> &middot;
-				<a href="#">Users</a> &middot;
-				<a href="#">Media</a> &middot;
-				<a href="#">Events</a> &middot;
-				<a href="#">Newsletter</a> &middot;
-				<a href="#">Settings</a>
-			</nav>
-			<p>Copyright &copy; 2010</p>
+			<p>Copyright &copy; 2014 HBCIT.EDU</p>
 		</div>
 	</footer>
 	<!-- End of Page footer -->
-	
-	<!-- Animated footer -->
-	<footer id="animated">
-		<ul>
-			<li><a href="#">Dashboard</a></li>
-			<li><a href="#">Content</a></li>
-			<li><a href="#">Reports</a></li>
-			<li><a href="#">Users</a></li>
-			<li><a href="#">Media</a></li>
-			<li><a href="#">Events</a></li>
-			<li><a href="#">Newsletter</a></li>
-			<li><a href="#">Settings</a></li>
-		</ul>
-	</footer>
-	<!-- End of Animated footer -->
-	
 	<!-- Scroll to top link -->
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- Admin template javascript load -->
-<script type="text/javascript" SRC="js/administry.js"></script></body>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/administry.js"></script></body>
 </html>

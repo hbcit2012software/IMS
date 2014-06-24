@@ -69,6 +69,7 @@
                                     <li><a HREF="samples-files.html">实践指导书</a></li>
                                     <li><a HREF="samples-files.html">实践任务书</a></li>
                                     <li><a HREF="samples-files.html">实践教学计划</a></li>
+                                    <li><a HREF="samples-files.html">听课记录</a></li>
 								</ul>
 							</li>
                             <li>
