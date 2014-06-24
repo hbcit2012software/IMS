@@ -67,20 +67,29 @@ public class BeginPPTServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-control", "no-cache");
 		response.setDateHeader("Expires", 0);
+		
 		CourseDao cd = new CourseDao();
 		MajorDao md=new MajorDao();
+		
 		ArrayList MajorsCourseTerms=null;
 		ArrayList majorList=null;
+		ArrayList courseList=null;
+		
 		majorList=	md.selectMajorByUser((String)session.getAttribute("username"));
 		MajorsCourseTerms=cd.selectMajorCourseTermsByusername((String)session.getAttribute("username"));
+		courseList=cd.selectCourseByusername((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
+		
 		request.setAttribute("MajorCourseTerms", MajorsCourseTerms);//课程信息
 		request.setAttribute("majorList", majorList);//专业信息
+		request.setAttribute("courseList", courseList);//当前用户课程表信息
+		
 		request.getRequestDispatcher("/2_1_1.jsp").forward(request, response);
 	}
 

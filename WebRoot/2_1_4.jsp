@@ -96,7 +96,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle">
 		<div class="wrapper">
-			<h1>课程管理 &rarr;期初PPT</h1>
+			<h1>课程管理 &rarr;授课计划</h1>
 			<!-- Quick search box -->
 			<form action="" method="get"><input class="" type="text" id="q" name="q" /></form>
 		</div>
@@ -110,9 +110,9 @@ $(document).ready(function(){
 		  <!-- Left column/section -->
 		  <section class="column width8">
 		    <!--	<h3>新增教研室活动计划</h3>-->
-		    <form id="sampleform"  name="kcid" method="post" action="${pageContext.request.contextPath }/servlet/UploadBeginPPT" ENCTYPE="multipart/form-data">
+		    <form id="sampleform"  name="kcid" method="post" action="${pageContext.request.contextPath }/servlet/UploadTeachPlan" ENCTYPE="multipart/form-data">
 		      <fieldset>
-		        <legend>期初PPT</legend>
+		        <legend>授课计划</legend>
 		        <table class="no-style" width="100%">
 		        <c:forEach items="${requestScope.majorList}" var="majorlist">
 		          <tr>
@@ -150,7 +150,7 @@ $(document).ready(function(){
 	          </fieldset>
 	        </form>
 		    <fieldset>
-		      <legend>历年期初PPT</legend>
+		      <legend>历年授课计划</legend>
 		      <table class="display stylized" id="example">
 		        <thead>
 		          <tr>
@@ -158,7 +158,7 @@ $(document).ready(function(){
 		            <th width="20%"><div align="center">专业名称</div></th>
 		            <th width="20%"><div align="center">课程名称</div></th>
 		            <th width="45%"><div align="center">所在年级</div></th>
-                    <th width="45%"><div align="center">PPT附件</div></th>
+                    <th width="45%"><div align="center">授课计划</div></th>
 		            <th width="10%"><div align="center">操作</div></th>
 	              </tr>
 	            </thead>
@@ -169,8 +169,8 @@ $(document).ready(function(){
 		            <td class="center">${mct.major_name}</td>
 		            <td class="center">${mct.course_name}</td>
                     <td class="center">${mct.grade}</td>
-		            <td class="center">${fn:substringAfter(mct.begin_term_ppt,"userfiles/")}</td>
-		            <td class="center"><a href="${mct.begin_term_ppt}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteBeginPPTById?id=${mct.PK_course }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
+		            <td class="center">${fn:substringAfter(mct.teach_plan,"userfiles/")}</td>
+		            <td class="center"><a href="${mct.teach_plan}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteTeachPlan?id=${mct.PK_course }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
 	              </tr>
 		        </c:forEach>
 	            </tbody>

@@ -76,6 +76,7 @@ public class UploadBeginPPT extends HttpServlet {
 		map = (HashMap)list.get(0);//获取参数值map
 		path = (String)list.get(1);//获取上传路径
 		
+		
 		log.debug("上传成功kcid：" + (String)map.get("kcid"));
 		log.debug("上传成功path：" + path);
 		//转换成整型之前一定要进行格式检查

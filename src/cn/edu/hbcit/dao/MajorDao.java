@@ -162,6 +162,11 @@ public class MajorDao {
 		}
 		return list;
 	}
+	/**
+	 * 查询用户所在的专业名称、专业编号、学制等;
+	 * @param user
+	 * @return
+	 */
 	public ArrayList selectMajorByUser(String user){
 		ArrayList<Majors> list = null;
 		try {

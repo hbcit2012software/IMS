@@ -58,9 +58,72 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>deleteBeginPPTById</servlet-name>
-    <servlet-class>cn.edu.hbcit.servlet.deleteBeginPPTById</servlet-class>
+    <servlet-name>DeleteBeginPPTById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteBeginPPTById</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadBeginPlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadBeginPlan</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BeginPlanServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.BeginPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteBeginPlanById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteBeginPlanById</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BeginPlanIndexServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.BeginPlanIndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadBeginPlanIndex</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadBeginPlanIndex</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteBeginPlanIndexById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteBeginPlanIndexById</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TeachPlanServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.TeachPlanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadTeachPlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadTeachPlan</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteTeachPlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteTeachPlan</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127,8 +190,44 @@
     <url-pattern>/servlet/UploadBeginPPT</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>deleteBeginPPTById</servlet-name>
-    <url-pattern>/servlet/deleteBeginPPTById</url-pattern>
+    <servlet-name>DeleteBeginPPTById</servlet-name>
+    <url-pattern>/servlet/DeleteBeginPPTById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadBeginPlan</servlet-name>
+    <url-pattern>/servlet/UploadBeginPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BeginPlanServlet</servlet-name>
+    <url-pattern>/servlet/BeginPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteBeginPlanById</servlet-name>
+    <url-pattern>/servlet/DeleteBeginPlanById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BeginPlanIndexServlet</servlet-name>
+    <url-pattern>/servlet/BeginPlanIndexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadBeginPlanIndex</servlet-name>
+    <url-pattern>/servlet/UploadBeginPlanIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteBeginPlanIndexById</servlet-name>
+    <url-pattern>/servlet/DeleteBeginPlanIndexById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TeachPlanServlet</servlet-name>
+    <url-pattern>/servlet/TeachPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadTeachPlan</servlet-name>
+    <url-pattern>/servlet/UploadTeachPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteTeachPlan</servlet-name>
+    <url-pattern>/servlet/DeleteTeachPlan</url-pattern>
   </servlet-mapping>
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>

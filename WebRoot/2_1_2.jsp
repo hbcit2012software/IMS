@@ -29,7 +29,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!-- Your Custom Stylesheet --> 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/swfobject.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath}/js/swfobject.js"></script>
 <!-- jQuery with plugins -->
 <script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
@@ -71,6 +71,7 @@ $(document).ready(function(){
 	/* expandable rows */
 	Administry.expandableRows();
 });
+
 </script>
 </head>
 <body>
@@ -96,7 +97,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle">
 		<div class="wrapper">
-			<h1>课程管理 &rarr;期初PPT</h1>
+			<h1>课程管理 &rarr;期初教案</h1>
 			<!-- Quick search box -->
 			<form action="" method="get"><input class="" type="text" id="q" name="q" /></form>
 		</div>
@@ -110,9 +111,9 @@ $(document).ready(function(){
 		  <!-- Left column/section -->
 		  <section class="column width8">
 		    <!--	<h3>新增教研室活动计划</h3>-->
-		    <form id="sampleform"  name="kcid" method="post" action="${pageContext.request.contextPath }/servlet/UploadBeginPPT" ENCTYPE="multipart/form-data">
+		    <form id="sampleform" name="kcid" method="post" action="${pageContext.request.contextPath }/servlet/UploadBeginPlan" ENCTYPE="multipart/form-data">
 		      <fieldset>
-		        <legend>期初PPT</legend>
+		        <legend>期初教案</legend>
 		        <table class="no-style" width="100%">
 		        <c:forEach items="${requestScope.majorList}" var="majorlist">
 		          <tr>
@@ -123,11 +124,8 @@ $(document).ready(function(){
 	              </tr>
 	              </c:forEach>
 		          <tr>
-		            <td colspan="4">
+		            <td colspan="4"> 
                     <p class="box"> <span>课程名称：</span>
-                    <input type="hidden" value="AAAAAAA" name="test01">
-                    <input type="hidden" value="BBBBBBB" name="test02">
-                    <input type="hidden" value="CCCCCCC" name="test03">
 		              <select id="kcid" name="kcid" style="width:150px;">
 		                <c:forEach items="${requestScope.courseList}" var="major">
 							<optgroup label="${major.major_name}">
@@ -143,14 +141,14 @@ $(document).ready(function(){
 
 	              选择文件:&nbsp;&nbsp;
 		              <input type="file" style="width:auto;" name="accessories">
-		              <input type="submit"  class="btn btn-green big" value="上传"/>
-		              </p></td>  
+		              <input type="submit" class="btn btn-green big" value="上传"/>
+		              </p></td>
 	              </tr>
 	            </table>
 	          </fieldset>
 	        </form>
 		    <fieldset>
-		      <legend>历年期初PPT</legend>
+		      <legend>历年期初教案</legend>
 		      <table class="display stylized" id="example">
 		        <thead>
 		          <tr>
@@ -158,7 +156,7 @@ $(document).ready(function(){
 		            <th width="20%"><div align="center">专业名称</div></th>
 		            <th width="20%"><div align="center">课程名称</div></th>
 		            <th width="45%"><div align="center">所在年级</div></th>
-                    <th width="45%"><div align="center">PPT附件</div></th>
+                    <th width="45%"><div align="center">教案附件</div></th>
 		            <th width="10%"><div align="center">操作</div></th>
 	              </tr>
 	            </thead>
@@ -169,8 +167,8 @@ $(document).ready(function(){
 		            <td class="center">${mct.major_name}</td>
 		            <td class="center">${mct.course_name}</td>
                     <td class="center">${mct.grade}</td>
-		            <td class="center">${fn:substringAfter(mct.begin_term_ppt,"userfiles/")}</td>
-		            <td class="center"><a href="${mct.begin_term_ppt}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteBeginPPTById?id=${mct.PK_course }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
+		            <td class="center">${fn:substringAfter(mct.begin_term_plan,"userfiles/")}</td>
+		            <td class="center"><a href="${mct.begin_term_plan}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteBeginPlanById?id=${mct.PK_course }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
 	              </tr>
 		        </c:forEach>
 	            </tbody>
@@ -220,6 +218,6 @@ $(document).ready(function(){
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/administry.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath}/js/administry.js"></script>
 </body>
 </html>
