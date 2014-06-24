@@ -81,7 +81,7 @@ public class TeachPlanServlet extends HttpServlet {
 		ArrayList majorList=null;
 		ArrayList courseList=null;
 		
-		majorList=	md.selectMajorByUser((String)session.getAttribute("username"));
+		majorList=	md.selectMajorByUser((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
 		MajorsCourseTerms=cd.selectMajorCourseTermsByusername((String)session.getAttribute("username"));
 		courseList=cd.selectCourseByusername((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
 		

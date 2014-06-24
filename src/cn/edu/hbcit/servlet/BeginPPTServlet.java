@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import cn.edu.hbcit.dao.CourseDao;
 import cn.edu.hbcit.dao.MajorDao;
 //import cn.edu.hbcit.dao.TermsDao;
@@ -23,7 +25,7 @@ import cn.edu.hbcit.dao.MajorDao;
  * 2014-6-21
  */
 public class BeginPPTServlet extends HttpServlet {
-
+	protected final Logger log = Logger.getLogger(BeginPPTServlet.class.getName());
 	/**
 	 * Constructor of the object.
 	 */
@@ -81,8 +83,9 @@ public class BeginPPTServlet extends HttpServlet {
 		ArrayList MajorsCourseTerms=null;
 		ArrayList majorList=null;
 		ArrayList courseList=null;
-		
-		majorList=	md.selectMajorByUser((String)session.getAttribute("username"));
+		log.debug((String)session.getAttribute("username"));
+		log.debug((String)session.getAttribute("Semester"));
+		majorList=	md.selectMajorByUser((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
 		MajorsCourseTerms=cd.selectMajorCourseTermsByusername((String)session.getAttribute("username"));
 		courseList=cd.selectCourseByusername((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
 		

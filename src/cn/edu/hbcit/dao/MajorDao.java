@@ -167,14 +167,17 @@ public class MajorDao {
 	 * @param user
 	 * @return
 	 */
-	public ArrayList selectMajorByUser(String user){
+	public ArrayList selectMajorByUser(String user,String term){
 		ArrayList<Majors> list = null;
 		try {
 			Connection conn = Base.Connect();
 			Majors m = new Majors();
 			QueryRunner qr = new QueryRunner();
-			String sql = "select * from tb_majors where PK_majors in (select  FK_majors_course from tb_course where FK_users_course= ? )";
-			list = (ArrayList<Majors>)qr.query(conn, sql, new BeanListHandler(Majors.class), user);
+			log.debug("bean");
+			log.debug(user);
+			log.debug(term);
+			String sql = "select tb_majors.PK_majors,tb_majors.major_name,tb_majors.major_code,tb_majors.years,tb_majors.FK_users_majors from tb_majors where PK_majors in (select  FK_majors_course from tb_course where FK_users_course= ? and FK_terms_course=(select PK_term from tb_terms where term = ? ))";
+			list = (ArrayList<Majors>)qr.query(conn, sql, new BeanListHandler(Majors.class), user,term);
 			DbUtils.closeQuietly(conn);//关闭连接
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
