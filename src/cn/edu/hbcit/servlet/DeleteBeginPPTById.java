@@ -79,6 +79,10 @@ public class DeleteBeginPPTById extends HttpServlet {
 		String fileName= request.getParameter("filename");
 		log.debug(fileName);
 		boolean fileFlag=false;
+		
+		//删除文件
+		FileOperate fo = new FileOperate();
+		fileFlag = fo.deleteFile(request.getRealPath(fileName));
 		//判断是否删除文件
 				if(fileFlag){
 					//判断id是不是整数格式，否则会造成异常
@@ -98,7 +102,7 @@ public class DeleteBeginPPTById extends HttpServlet {
 				}
 				else{
 					request.setAttribute("msg", "删除失败");
-					request.getRequestDispatcher("BeginPlanServlet").forward(request, response);
+					request.getRequestDispatcher("BeginPPTServlet").forward(request, response);
 				}
 			}
 
