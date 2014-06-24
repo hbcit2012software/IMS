@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import cn.edu.hbcit.dao.CourseDao;
+import cn.edu.hbcit.utils.FileOperate;
 import cn.edu.hbcit.utils.UtilTools;
 
 /**
@@ -20,7 +23,7 @@ import cn.edu.hbcit.utils.UtilTools;
  * 2014-6-24
  */
 public class DeleteBeginPlanById extends HttpServlet {
-
+	protected final Logger log = Logger.getLogger(DeleteBeginPlanById.class.getName());
 	/**
 	 * Constructor of the object.
 	 */
@@ -71,17 +74,32 @@ public class DeleteBeginPlanById extends HttpServlet {
 		UtilTools util = new UtilTools();
 		boolean flag = false;		
 		String id = request.getParameter("id");
-		//判断id是不是整数格式，否则会造成异常
-		if(util.isNumeric(id)){
-		flag = cd.deleteBeginPlan(Integer.parseInt(id));
+		String fileName= request.getParameter("filename");
+		log.debug(fileName);
+		boolean fileFlag=false;
+		
+		//删除文件
+		FileOperate fo = new FileOperate();
+		fileFlag = fo.deleteFile(request.getRealPath(fileName));
+		
+		//判断是否删除文件
+		if(fileFlag){
+			//判断id是不是整数格式，否则会造成异常
+			if(util.isNumeric(id)){
+			flag = cd.deleteBeginPlan(Integer.parseInt(id));
+			}
+			if(flag)
+			{
+				request.setAttribute("msg", "删除成功");
+				request.getRequestDispatcher("BeginPlanServlet").forward(request, response);
+			}
+			else
+			{
+				request.setAttribute("msg", "删除失败");
+				request.getRequestDispatcher("BeginPlanServlet").forward(request, response);
+			}
 		}
-		if(flag)
-		{
-			request.setAttribute("msg", "删除成功");
-			request.getRequestDispatcher("BeginPlanServlet").forward(request, response);
-		}
-		else
-		{
+		else{
 			request.setAttribute("msg", "删除失败");
 			request.getRequestDispatcher("BeginPlanServlet").forward(request, response);
 		}
