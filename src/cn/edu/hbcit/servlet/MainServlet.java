@@ -37,7 +37,7 @@ public class MainServlet extends HttpServlet {
 		request.setAttribute("month", ymdw.get("month"));
 		request.setAttribute("w", CalenderUtil.getWeekends(ld.selectBeginDate()));//开学日期
 		request.setAttribute("zhouqi", CalenderUtil.getSemester());
-		request.setAttribute("Course", md.selectMajorAndCourseByUser((String)session.getAttribute("username")));
+		request.setAttribute("Course", md.selectMajorAndCourseByUser((String)session.getAttribute("username"), CalenderUtil.getSemester()));
 		request.getRequestDispatcher("/main.jsp").forward(request, response);
 	}
 

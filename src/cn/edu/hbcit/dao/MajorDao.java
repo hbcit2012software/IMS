@@ -145,15 +145,18 @@ public class MajorDao {
 	 * @param user
 	 * @return
 	 */
-	public ArrayList selectMajorAndCourseByUser(String user){
+	public ArrayList selectMajorAndCourseByUser(String user, String term){
 		ArrayList<Course> list = null;
 		try {
 			Connection conn = Base.Connect();
 			Course c = new Course();
 			QueryRunner qr = new QueryRunner();
-			String sql = "    SELECT tb_course.PK_course, tb_course.course_name, tb_course.class_hour, tb_course.begin_end_week, tb_course.FK_users_course, tb_course.grade, tb_course.FK_terms_course, tb_course.course_type,tb_course.FK_majors_course, tb_majors.major_name FROM tb_course INNER JOIN tb_majors WHERE tb_majors.PK_majors = tb_course.FK_majors_course AND tb_course.FK_users_course=?";
+			String sql = "SELECT tb_course.PK_course, tb_course.course_name, tb_course.class_hour, tb_course.begin_end_week, tb_course.FK_users_course, tb_course.grade, tb_course.FK_terms_course, tb_course.course_type,tb_course.FK_majors_course, tb_majors.major_name "
+						+"FROM tb_course INNER JOIN tb_majors ON tb_majors.PK_majors = tb_course.FK_majors_course "
+						+"INNER JOIN tb_terms ON tb_terms.PK_term = tb_course.FK_terms_course "
+						+"WHERE tb_course.FK_users_course=? AND tb_terms.term=?";
 		
-			list = (ArrayList<Course>)qr.query(conn, sql, new BeanListHandler(Course.class), user);
+			list = (ArrayList<Course>)qr.query(conn, sql, new BeanListHandler(Course.class), user, term);
 			
 			DbUtils.closeQuietly(conn);//关闭连接
 		} catch (SQLException e) {
