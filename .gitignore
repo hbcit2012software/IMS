@@ -13,6 +13,7 @@ classes/
 .settings/
 userfiles/
 
+.*
 .project
 .classpath
 .mymetadata
