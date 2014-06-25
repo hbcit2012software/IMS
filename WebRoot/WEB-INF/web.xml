@@ -144,6 +144,39 @@
     <servlet-name>PracticeMissionNoteServlet</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.PracticeMissionNoteServlet</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>AddUsers</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.AddUsers</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>DeleteUsers</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteUsers</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>ResetPasswd</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.ResetPasswd</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>SelectUsers</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.SelectUsers</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>SelectUsersByName</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.SelectUsersByName</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>SelectUsersIsExist</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.SelectUsersIsExist</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>UpdateUsers</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UpdateUsers</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>UpdateUsersInPasswd</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UpdateUsersInPasswd</servlet-class>
+  </servlet>
+
 
 
 
@@ -288,6 +321,40 @@
     <servlet-name>DeletePracticeMissionNote</servlet-name>
     <url-pattern>/servlet/DeletePracticeMissionNote</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>AddUsers</servlet-name>
+    <url-pattern>/servlet/AddUsers</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>DeleteUsers</servlet-name>
+    <url-pattern>/servlet/DeleteUsers</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ResetPasswd</servlet-name>
+    <url-pattern>/servlet/ResetPasswd</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>SelectUsers</servlet-name>
+    <url-pattern>/servlet/SelectUsers</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>SelectUsersByName</servlet-name>
+    <url-pattern>/servlet/SelectUsersByName</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>SelectUsersIsExist</servlet-name>
+    <url-pattern>/servlet/SelectUsersIsExist</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>UpdateUsers</servlet-name>
+    <url-pattern>/servlet/UpdateUsers</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>UpdateUsersInPasswd</servlet-name>
+    <url-pattern>/servlet/UpdateUsersInPasswd</url-pattern>
+  </servlet-mapping>
+  
+  
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>
 		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>

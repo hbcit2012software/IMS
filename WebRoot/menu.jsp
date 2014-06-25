@@ -117,7 +117,7 @@
                             <li>
 								<a href="#">用户设置</a>
 								<ul>
-									<li><a HREF="newuse.html">用户管理</a></li>
+									<li><a HREF="${pageContext.request.contextPath }/servlet/SelectUsers">用户管理</a></li>
 								</ul>
 							</li>
 						</ul>
