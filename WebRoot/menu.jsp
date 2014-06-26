@@ -61,10 +61,10 @@
                             <li>
 								<a href="#">期中工作</a>
 								<ul>
-                                    <li><a HREF="samples-files.html">期中教案</a></li>
-                                    <li><a HREF="samples-files.html">期中教案首页</a></li>
-                                    <li><a HREF="samples-files.html">期中PPT</a></li>
-                                    <li><a HREF="samples-files.html">答疑记录</a></li>
+                                    <li><a HREF="${pageContext.request.contextPath }/servlet/MidTermPlan">期中教案</a></li>
+                                    <li><a HREF="${pageContext.request.contextPath }/servlet/MidTermPlanIndex">期中教案首页</a></li>
+                                    <li><a HREF="${pageContext.request.contextPath }/servlet/MidPPTServlet">期中PPT</a></li>
+                                    <li><a HREF="${pageContext.request.contextPath }/servlet/QAServlet">答疑记录</a></li>
                                     <li><a HREF="samples-files.html">听课记录</a></li>
                                     <li><a HREF="samples-files.html">学生作业</a></li>
                                     <li><a HREF="samples-files.html">实践指导书</a></li>

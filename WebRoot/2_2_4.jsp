@@ -29,7 +29,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!-- Your Custom Stylesheet --> 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="${pageContext.request.contextPath}/js/swfobject.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/swfobject.js"></script>
 <!-- jQuery with plugins -->
 <script type="text/javascript" SRC="${pageContext.request.contextPath }/js/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
@@ -71,7 +71,6 @@ $(document).ready(function(){
 	/* expandable rows */
 	Administry.expandableRows();
 });
-
 </script>
 </head>
 <body>
@@ -93,13 +92,12 @@ $(document).ready(function(){
 			<!-- End of Aside links -->
 		</div>
 	</header>
+	</header>
 	<!-- End of Header -->
 	<!-- Page title -->
 	<div id="pagetitle">
 		<div class="wrapper">
-			<h1>课程管理 &rarr;期初教案</h1>
-			<!-- Quick search box -->
-			<form action="" method="get"><input class="" type="text" id="q" name="q" /></form>
+			<h1>课程管理 &rarr;答疑记录</h1>
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -110,12 +108,11 @@ $(document).ready(function(){
 		<div class="wrapper">
 		  <!-- Left column/section -->
 		  <section class="column width8">
-		    <!--	<h3>新增教研室活动计划</h3>-->
-		    <form id="sampleform" name="kcid" method="post" action="${pageContext.request.contextPath }/servlet/UploadBeginPlan" ENCTYPE="multipart/form-data">
+		    <form id="sampleform"  name="kcid" ENCTYPE="multipart/form-data" method="post" action="${pageContext.request.contextPath }/servlet/UploadQA">
 		      <fieldset>
-		        <legend>期初教案</legend>
+		        <legend>答疑记录</legend>
 		        <table class="no-style" width="100%">
-		        <c:forEach items="${requestScope.majorList}" var="majorlist">
+		          <c:forEach items="${requestScope.majorList}" var="majorlist">
 		          <tr>
 		            <td><span class="label label-gray">专业名称</span> &nbsp;&nbsp;${majorlist.major_name}</td>
 		            <td><span class="label label-gray">专业代码</span> &nbsp;&nbsp;${majorlist.major_code}</td>
@@ -141,34 +138,34 @@ $(document).ready(function(){
 
 	              选择文件:&nbsp;&nbsp;
 		              <input type="file" style="width:auto;" name="accessories">
-		              <input type="submit" class="btn btn-green big" value="上传"/>
+		              <input type="submit" id="beginppt"  class="btn btn-green big" value="上传"/>
 		              </p></td>
 	              </tr>
 	            </table>
 	          </fieldset>
 	        </form>
 		    <fieldset>
-		      <legend>历年期初教案</legend>
+		      <legend>历年答疑记录</legend>
 		      <table class="display stylized" id="example">
 		        <thead>
 		          <tr>
-		            <th width="25%"><div align="center">所在学期</div></th>
-		            <th width="20%"><div align="center">专业名称</div></th>
-		            <th width="20%"><div align="center">课程名称</div></th>
-		            <th width="45%"><div align="center">所在年级</div></th>
-                    <th width="45%"><div align="center">教案附件</div></th>
+		            <th width="20%"><div align="center">所在学期</div></th>
+		            <th width="15%"><div align="center">专业名称</div></th>
+                    <th width="20%"><div align="center">课程名称</div></th>
+		            <th width="15%"><div align="center">所在年级</div></th>
+                    <th width="20%"><div align="center">教案附件</div></th>
 		            <th width="10%"><div align="center">操作</div></th>
 	              </tr>
 	            </thead>
 		        <tbody>
-		        <c:forEach items="${requestScope.MajorCourseTerms}" var="mct">
+		          <c:forEach items="${requestScope.MajorCourseTerms}" var="mct">
 		          <tr>
-		            <td class="center">${mct.term}</td>	
+		            <td class="center"><input type="hidden" value="${mct.PK_course }" name="test01">${mct.term}</td>	
 		            <td class="center">${mct.major_name}</td>
 		            <td class="center">${mct.course_name}</td>
                     <td class="center">${mct.grade}</td>
-		            <td class="center">${fn:substringAfter(mct.begin_term_plan,"userfiles/")}</td>
-		            <td class="center"><a href="${pageContext.request.contextPath }/${mct.begin_term_plan}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteBeginPlanById?id=${mct.PK_course }&filename=${mct.begin_term_plan}" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
+		            <td class="center">${fn:substringAfter(mct.qa,"userfiles/")}</td>
+		            <td class="center"><a href="${pageContext.request.contextPath }/${mct.qa}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteQAById?id=${mct.PK_course }" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
 	              </tr>
 		        </c:forEach>
 	            </tbody>
@@ -218,6 +215,6 @@ $(document).ready(function(){
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="${pageContext.request.contextPath}/js/administry.js"></script>
+<script type="text/javascript" SRC="${pageContext.request.contextPath }/js/administry.js"></script>
 </body>
 </html>

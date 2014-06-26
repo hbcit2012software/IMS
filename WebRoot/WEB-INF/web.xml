@@ -176,6 +176,66 @@
     <servlet-name>UpdateUsersInPasswd</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.UpdateUsersInPasswd</servlet-class>
   </servlet>
+  <servlet>
+      <servlet-name>MidTermPlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.MidTermPlan</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadMTPlan</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadMTPlan</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelectMidTermPlanById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DelectMidTermPlanById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MidTrrmPlanIndex</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.MidTrrmPlanIndex</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MidTermPlanIndex</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.MidTermPlanIndex</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadMTPlanIndex</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadMTPlanIndex</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelectMidTermPlanIndexById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DelectMidTermPlanIndexById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteMidPlanById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteMidPlanById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteMidPlanIndexById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteMidPlanIndexById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MidPPTServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.MidPPTServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadMidPPT</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadMidPPT</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteMidpptById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteMidpptById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QAServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.QAServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadQA</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadQA</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteQAById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteQAById</servlet-class>
+  </servlet>
 
 
 
@@ -321,6 +381,66 @@
     <servlet-name>DeletePracticeMissionNote</servlet-name>
     <url-pattern>/servlet/DeletePracticeMissionNote</url-pattern>
   </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MidTermPlan</servlet-name>
+    <url-pattern>/servlet/MidTermPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadMTPlan</servlet-name>
+    <url-pattern>/servlet/UploadMTPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelectMidTermPlanById</servlet-name>
+    <url-pattern>/servlet/DelectMidTermPlanById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MidTrrmPlanIndex</servlet-name>
+    <url-pattern>/servlet/MidTrrmPlanIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MidTermPlanIndex</servlet-name>
+    <url-pattern>/servlet/MidTermPlanIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadMTPlanIndex</servlet-name>
+    <url-pattern>/servlet/UploadMTPlanIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelectMidTermPlanIndexById</servlet-name>
+    <url-pattern>/servlet/DelectMidTermPlanIndexById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteMidPlanById</servlet-name>
+    <url-pattern>/servlet/DeleteMidPlanById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteMidPlanIndexById</servlet-name>
+    <url-pattern>/servlet/DeleteMidPlanIndexById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MidPPTServlet</servlet-name>
+    <url-pattern>/servlet/MidPPTServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadMidPPT</servlet-name>
+    <url-pattern>/servlet/UploadMidPPT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteMidpptById</servlet-name>
+    <url-pattern>/servlet/DeleteMidpptById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QAServlet</servlet-name>
+    <url-pattern>/servlet/QAServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadQA</servlet-name>
+    <url-pattern>/servlet/UploadQA</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteQAById</servlet-name>
+    <url-pattern>/servlet/DeleteQAById</url-pattern>
+  </servlet-mapping>
     <servlet-mapping>
     <servlet-name>AddUsers</servlet-name>
     <url-pattern>/servlet/AddUsers</url-pattern>
@@ -353,6 +473,7 @@
     <servlet-name>UpdateUsersInPasswd</servlet-name>
     <url-pattern>/servlet/UpdateUsersInPasswd</url-pattern>
   </servlet-mapping>
+  
   
   
 	<filter>

@@ -170,7 +170,7 @@ $(document).ready(function(){
 		            <td class="center">${mct.course_name}</td>
                     <td class="center">${mct.grade}</td>
 		            <td class="center">${fn:substringAfter(mct.begin_term_ppt,"userfiles/")}</td>
-		            <td class="center"><a href="${mct.begin_term_ppt}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteBeginPPTById?id=${mct.PK_course }&filename=${mct.begin_term_ppt}" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
+		            <td class="center"><a href="${pageContext.request.contextPath }/${mct.begin_term_ppt}" title="下载"><img width="16" height="16" alt="另存文件" src="${pageContext.request.contextPath }/img/page_save.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/servlet/DeleteBeginPPTById?id=${mct.PK_course }&filename=${mct.begin_term_ppt}" title="删除"><img src="${pageContext.request.contextPath }/img/cross.png" alt="删除" /></a></td>
 	              </tr>
 		        </c:forEach>
 	            </tbody>

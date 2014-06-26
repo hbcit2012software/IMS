@@ -375,4 +375,214 @@ public class CourseDao {
 		}
 		return flag;
 	}
+	/**
+	 * 删除期中PPT
+	 * @param course_id
+	 * @return
+	 */
+	public boolean deleteMidppt(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET mid_term_ppt=? WHERE PK_course=? ";
+			count = qr.update(conn, sql,string,course_id);
+			log.debug("删除期中PPT：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 上传期中ppt
+	 * @param course_id
+	 * @param begin_term_plan
+	 * @return
+	 */
+	public boolean uploadMidppt(int course_id,String mid_term_ppt ){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET mid_term_ppt=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql, mid_term_ppt,course_id);
+			
+			log.debug("上传期中ppt：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 上传答疑记录
+	 * @param course_id
+	 * @param begin_term_plan
+	 * @return
+	 */
+	public boolean uploadQA(int course_id,String qa ){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET qa=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql, qa,course_id);
+			
+			log.debug("上传答疑记录：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+
+	/**
+	 * 上传期中教案
+	 * @param course_id
+	 * @param begin_term_plan
+	 * @return
+	 */
+	public boolean uploadMidTermPlan(int course_id,String mid_term_plan ){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET mid_term_plan=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql, mid_term_plan,course_id);
+			
+			log.debug("上传期中教案：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 上传期中教案首页
+	 * @param course_id
+	 * @param begin_term_plan
+	 * @return
+	 */
+	public boolean uploadMidTermPlanIndex(int course_id,String mid_term_plan_index ){
+		int count = 0;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET mid_term_plan_index=? WHERE PK_course=? ";
+		
+			count = qr.update(conn, sql, mid_term_plan_index,course_id);
+			
+			log.debug("上传期中教案首页：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	
+	/**
+	 * 删除答疑记录
+	 * @param course_id
+	 * @return
+	 */
+	public boolean deleteQA(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET qa=? WHERE PK_course=? ";
+			count = qr.update(conn, sql,string,course_id);
+			log.debug("答疑记录：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 删除期中教案
+	 * @param course_id
+	 * @return
+	 */
+	public boolean deleteMidTermPlanById(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET mid_term_plan=? WHERE PK_course=? ";
+			count = qr.update(conn, sql,string,course_id);
+			log.debug("删除期中教案：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * 删除期中教案首页
+	 * @param course_id
+	 * @return
+	 */
+	public boolean deleteMidTermPlanIndexById(int course_id){
+		int count = 0;
+		String string=null;
+		boolean flag = false;
+		try {
+			Connection conn = Base.Connect();
+			QueryRunner qr = new QueryRunner();
+			String sql = "UPDATE tb_course SET mid_term_plan_index=? WHERE PK_course=? ";
+			count = qr.update(conn, sql,string,course_id);
+			log.debug("删除期中教案首页：" + count);
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(count>0){
+			flag = true;
+		}
+		return flag;
+	}
 }
