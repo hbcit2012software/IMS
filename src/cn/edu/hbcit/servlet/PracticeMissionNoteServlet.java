@@ -87,7 +87,7 @@ public class PracticeMissionNoteServlet extends HttpServlet {
 		log.debug((String)session.getAttribute("Semester"));
 		majorList=	md.selectMajorByUser((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
 		MajorsCourseTerms=cd.selectMajorCourseTermsByusername((String)session.getAttribute("username"));
-		courseList=cd.selectCourseByusername((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
+		courseList=cd.selectCourseIsPractice((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
 		
 		request.setAttribute("MajorCourseTerms", MajorsCourseTerms);//课程信息
 		request.setAttribute("majorList", majorList);//专业信息

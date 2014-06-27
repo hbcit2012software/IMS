@@ -236,6 +236,54 @@
     <servlet-name>DeleteQAById</servlet-name>
     <servlet-class>cn.edu.hbcit.servlet.DeleteQAById</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>ListenreportServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.ListenreportServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>UploadListenreport</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadListenreport</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteListenreportById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteListenreportById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Practice_noteServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.Practice_noteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdatePractice_note</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UpdatePractice_note</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeletePractice_note</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeletePractice_note</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PaperServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.PaperServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadPaper</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadPaper</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeletePaperById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeletePaperById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ScoreServlet</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.ScoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteScoreById</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.DeleteScoreById</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadScore</servlet-name>
+    <servlet-class>cn.edu.hbcit.servlet.UploadScore</servlet-class>
+  </servlet>
 
 
 
@@ -359,7 +407,6 @@
     <servlet-name>PracticePlanServlet</servlet-name>
     <url-pattern>/servlet/PracticePlanServlet</url-pattern>
   </servlet-mapping>
-  
     <servlet-mapping>
     <servlet-name>UploadPracticePlan</servlet-name>
     <url-pattern>/servlet/UploadPracticePlan</url-pattern>
@@ -372,7 +419,6 @@
       <servlet-name>PracticeMissionNoteServlet</servlet-name>
     <url-pattern>/servlet/PracticeMissionNoteServlet</url-pattern>
   </servlet-mapping>
-  
     <servlet-mapping>
     <servlet-name>UploadPracticeMissionNote</servlet-name>
     <url-pattern>/servlet/UploadPracticeMissionNote</url-pattern>
@@ -472,6 +518,55 @@
     <servlet-mapping>
     <servlet-name>UpdateUsersInPasswd</servlet-name>
     <url-pattern>/servlet/UpdateUsersInPasswd</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>ListenreportServlet</servlet-name>
+    <url-pattern>/servlet/ListenreportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadListenreport</servlet-name>
+    <url-pattern>/servlet/UploadListenreport</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteListenreportById</servlet-name>
+    <url-pattern>/servlet/DeleteListenreportById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Practice_noteServlet</servlet-name>
+    <url-pattern>/servlet/Practice_noteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdatePractice_note</servlet-name>
+    <url-pattern>/servlet/UpdatePractice_note</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePractice_note</servlet-name>
+    <url-pattern>/servlet/DeletePractice_note</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PaperServlet</servlet-name>
+    <url-pattern>/servlet/PaperServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadPaper</servlet-name>
+    <url-pattern>/servlet/UploadPaper</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePaperById</servlet-name>
+    <url-pattern>/servlet/DeletePaperById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ScoreServlet</servlet-name>
+    <url-pattern>/servlet/ScoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteScoreById</servlet-name>
+    <url-pattern>/servlet/DeleteScoreById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadScore</servlet-name>
+    <url-pattern>/servlet/UploadScore</url-pattern>
   </servlet-mapping>
   
   

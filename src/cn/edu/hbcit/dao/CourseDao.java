@@ -69,6 +69,29 @@ public class CourseDao {
 		return list;
 	}
 	/**
+	 * 查询是实训的课程
+	 * @param username
+	 * @param term
+	 * @return
+	 */
+	public ArrayList selectCourseIsPractice(String username,String term){
+		ArrayList<Course> list = null;
+		try {
+			Connection conn = Base.Connect();
+			Course course = new Course();
+			QueryRunner qr = new QueryRunner();
+			String sql = "select * from tb_course inner join tb_terms on FK_terms_course=PK_term inner join tb_majors on PK_majors=FK_majors_course where FK_users_course= ? and term= ? and is_practice=1";
+		
+			list = (ArrayList<Course>)qr.query(conn, sql, new BeanListHandler(Course.class), username,term);
+			
+			DbUtils.closeQuietly(conn);//关闭连接
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	/**
 	 * 上传期初PPT
 	 * @param course_id
 	 * @param course_ppt

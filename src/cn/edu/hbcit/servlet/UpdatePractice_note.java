@@ -1,34 +1,33 @@
-/**
- * 
- */
 package cn.edu.hbcit.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import cn.edu.hbcit.dao.CourseDao;
-import cn.edu.hbcit.dao.MajorDao;
-
+import cn.edu.hbcit.dao.ListenreportDao;
+import cn.edu.hbcit.utils.UploadTools;
+import cn.edu.hbcit.utils.UtilTools;
 /**
- * @author 武佳男
+ * @author 吴雅君
  *
  * 2014-6-24
  */
-public class PracticePlanServlet extends HttpServlet {
-	protected final Logger log = Logger.getLogger(PracticePlanServlet.class.getName());
+public class UpdatePractice_note extends HttpServlet {
+	protected final Logger log = Logger.getLogger(UpdatePractice_note.class.getName());
+	private ServletConfig config;
 	/**
 	 * Constructor of the object.
 	 */
-	public PracticePlanServlet() {
+	public UpdatePractice_note() {
 		super();
 	}
 
@@ -52,7 +51,7 @@ public class PracticePlanServlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			this.doPost(request, response);
+             this.doPost(request, response);
 	}
 
 	/**
@@ -67,39 +66,52 @@ public class PracticePlanServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
+
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
-		response.setHeader("Pragma", "No-cache");
-		response.setHeader("Cache-control", "no-cache");
-		response.setDateHeader("Expires", 0);
+//		PrintWriter out = response.getWriter();
+		boolean flag = false;
+		int course_id = 0;
+		ListenreportDao cd = new ListenreportDao();
+		UploadTools ut = new UploadTools();
+		UtilTools util = new UtilTools();
+		HashMap map = new HashMap(); 
+		ArrayList list = new ArrayList();
+		String path = "";
 		
-		CourseDao cd = new CourseDao();
-		MajorDao md=new MajorDao();
+		String[] params = {"kcid"}; 
+		list = ut.upload(request, response, config, params);
+		map = (HashMap)list.get(0);//获取参数值map
+		path = (String)list.get(1);//获取上传路径
 		
-		ArrayList MajorsCourseTerms=null;
-		ArrayList majorList=null;
-		ArrayList courseList=null;
 		
-		majorList=	md.selectMajorByUser((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
-		MajorsCourseTerms=cd.selectMajorCourseTermsByusername((String)session.getAttribute("username"));
-		courseList=cd.selectCourseIsPractice((String)session.getAttribute("username"),(String)session.getAttribute("Semester"));
+		log.debug("上传成功kcid：" + (String)map.get("kcid"));
+		log.debug("上传成功path：" + path);
+		//转换成整型之前一定要进行格式检查
+		if(util.isNumeric((String)map.get("kcid"))){
+			course_id=Integer.parseInt((String)map.get("kcid")); 
+		}
 		
-		request.setAttribute("MajorCourseTerms", MajorsCourseTerms);//课程信息
-		request.setAttribute("majorList", majorList);//专业信息
-		request.setAttribute("courseList", courseList);//当前用户课程表信息
-		
-		request.getRequestDispatcher("/2_2_9.jsp").forward(request, response);
-	}
+		log.debug("major_name:" + path);
+		flag = cd.uploadPractice_note(course_id, path);
+		if(flag){
+		request.setAttribute("msg", "上传成功");
+		request.getRequestDispatcher("Practice_noteServlet").forward(request, response);
+		}
+		else{
+			request.setAttribute("msg", "上传失败");
+			request.getRequestDispatcher("Practice_noteServlet").forward(request, response);
+		}
+		}
+	
 
 	/**
 	 * Initialization of the servlet. <br>
 	 *
 	 * @throws ServletException if an error occurs
 	 */
-	public void init() throws ServletException {
-		// Put your code here
+	public void init(ServletConfig config) throws ServletException {
+		this.config = config;
 	}
 
 }
